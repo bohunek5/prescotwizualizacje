@@ -1,0 +1,9 @@
+PRESCOT 3D
+
+10 modeli: PREMIUM 70 / 140 / 210 / RGBW; DELUX 3in1 / Low Brightness / Slim; COB / WCOB / COB IP67.
+
+Aktualna korekta: WCOB ma wypukłą mleczną osłonę. WCOB oraz COB IP67 nie mają logo PRESCOT ani znaków CE/RoHS na osłonach. Trzecia taśma PREMIUM ma oporniki pomiędzy diodami.
+
+Modele odtworzone w Blenderze z fotografii, materiałów produktowych i wskazanej referencji. Nie są fabrycznym CAD. Wymiary przekrojów i wysokości części są przybliżeniami wizualnymi. Wersje PREMIUM 70 i 140 LED/m mają tutaj 24 V zgodnie ze źródłami.
+
+Warianty zgaszony, zapalony i mieszany wykorzystują tę samą geometrię. COB, WCOB i COB IP67: podpis 3 lata gwarancji według specyfikacji projektu.
