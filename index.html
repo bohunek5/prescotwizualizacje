@@ -1196,7 +1196,154 @@
         padding: 30px 20px;
       }
     }
+
+    /* ==========================================================================
+       ARCHITECTURAL ACCESS GATE (PASSWORD: 12341234)
+       ========================================================================== */
+    html.prescot-authenticated #auth-gate {
+      display: none !important;
+    }
+
+    .auth-gate-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      background: rgba(245, 244, 240, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      transition: opacity 0.35s ease, visibility 0.35s ease;
+    }
+
+    .auth-gate-overlay.unlocked {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .auth-gate-card {
+      width: 100%;
+      max-width: 440px;
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      box-shadow: 0 20px 60px rgba(36, 56, 62, 0.12);
+      padding: 40px 36px 30px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: gatePopIn 0.3s ease;
+    }
+
+    @keyframes gatePopIn {
+      from { opacity: 0; transform: scale(0.96) translateY(12px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .auth-brand img {
+      height: 34px;
+      margin-bottom: 22px;
+      object-fit: contain;
+    }
+
+    .auth-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 9.5px;
+      letter-spacing: 2px;
+      color: var(--orange);
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .auth-title {
+      font-size: 21px;
+      font-weight: 600;
+      color: var(--dark);
+      margin: 0 0 10px 0;
+      letter-spacing: -0.4px;
+    }
+
+    .auth-lead {
+      font-size: 12.5px;
+      color: var(--muted);
+      line-height: 1.6;
+      font-family: var(--font-body);
+      margin-bottom: 24px;
+    }
+
+    .auth-field {
+      width: 100%;
+      display: flex;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .auth-input {
+      flex: 1;
+      padding: 12px 14px;
+      border: 1px solid #d8ded2;
+      border-radius: var(--radius-sm);
+      font-size: 13.5px;
+      font-family: var(--font-mono);
+      color: var(--dark);
+      background: #fafaf8;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .auth-input:focus {
+      border-color: var(--dark);
+      background: #ffffff;
+      box-shadow: 0 0 0 2px rgba(36, 56, 62, 0.1);
+    }
+
+    .auth-submit-btn {
+      background: var(--dark);
+      color: #ffffff;
+      padding: 12px 18px;
+      border-radius: var(--radius-sm);
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .auth-submit-btn:hover {
+      background: var(--dark-hover);
+    }
+
+    .auth-error {
+      font-size: 11px;
+      color: var(--orange);
+      font-family: var(--font-mono);
+      margin-top: 6px;
+      margin-bottom: 8px;
+    }
+
+    .auth-footer-note {
+      font-size: 9.5px;
+      color: var(--dim);
+      font-family: var(--font-mono);
+      margin-top: 22px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+      width: 100%;
+    }
   </style>
+
+  <!-- Immediate Authentication State Guard -->
+  <script>
+    if (localStorage.getItem('prescot_3d_auth') === '12341234') {
+      document.documentElement.classList.add('prescot-authenticated');
+    }
+  </script>
 
   <!-- Import map for Three.js (Local vendor files) -->
   <script type="importmap">
@@ -1209,6 +1356,36 @@
   </script>
 </head>
 <body>
+
+  <!-- ========================================================================
+       ARCHITECTURAL ACCESS GATE (PASSWORD: 12341234)
+       ======================================================================== -->
+  <div id="auth-gate" class="auth-gate-overlay">
+    <div class="auth-gate-card">
+      <div class="auth-brand">
+        <img src="assets/prescot-logo.svg" alt="PRESCOT LED">
+      </div>
+      <span class="auth-eyebrow">DOSTĘP AUTORYZOWANY · PROJEKT B2B 2026</span>
+      <h2 class="auth-title">Wizualizacje 3D Prescot LED</h2>
+      <p class="auth-lead">
+        Dostęp do interaktywnej platformy 3D, specyfikacji technicznych i plików CAD wymaga autoryzacji partnera. Wprowadź hasło dostępowe.
+      </p>
+
+      <form id="auth-form" style="width: 100%;" onsubmit="event.preventDefault(); window.checkPassword();">
+        <div class="auth-field">
+          <input type="password" id="auth-password-input" class="auth-input" placeholder="Wprowadź hasło" autocomplete="current-password" autofocus required>
+          <button type="submit" class="auth-submit-btn">Odblokuj ↗</button>
+        </div>
+        <div id="auth-error-msg" class="auth-error" hidden>
+          Nieprawidłowe hasło dostępowe. Spróbuj ponownie.
+        </div>
+      </form>
+
+      <div class="auth-footer-note">
+        <span>Prescot Sp. z o.o. · Giżycko · Dział Architektury</span>
+      </div>
+    </div>
+  </div>
 
   <!-- ========================================================================
        TOP ARCHITECTURAL HEADER
@@ -1234,6 +1411,9 @@
     </nav>
 
     <div class="header-actions">
+      <button class="quiet-btn" title="Zablokuj stronę hasłem" onclick="window.lockAccess()">
+        <span>🔒 Zablokuj</span>
+      </button>
       <a href="3D_Z_MODELI/modele/COB.glb" download class="quiet-btn">
         <span>Pobierz GLB</span>
         <span>↓</span>
@@ -2187,6 +2367,41 @@
         controls.update();
       });
     });
+
+    // ========================================================================
+    // AUTHENTICATION ACCESS GATE LOGIC (Password: 12341234)
+    // ========================================================================
+    const AUTH_PASS = '12341234';
+
+    window.checkPassword = function() {
+      const input = document.getElementById('auth-password-input');
+      const errorMsg = document.getElementById('auth-error-msg');
+      const gate = document.getElementById('auth-gate');
+      const val = input ? input.value.trim() : '';
+
+      if (val === AUTH_PASS) {
+        localStorage.setItem('prescot_3d_auth', AUTH_PASS);
+        document.documentElement.classList.add('prescot-authenticated');
+        if (errorMsg) errorMsg.hidden = true;
+        if (gate) {
+          gate.classList.add('unlocked');
+          setTimeout(() => gate.remove(), 400);
+        }
+      } else {
+        if (errorMsg) errorMsg.hidden = false;
+        if (input) {
+          input.value = '';
+          input.focus();
+          input.style.borderColor = 'var(--orange)';
+          setTimeout(() => { if (input) input.style.borderColor = ''; }, 1600);
+        }
+      }
+    };
+
+    window.lockAccess = function() {
+      localStorage.removeItem('prescot_3d_auth');
+      location.reload();
+    };
   </script>
 </body>
 </html>
