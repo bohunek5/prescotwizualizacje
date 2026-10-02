@@ -1,12 +1,2192 @@
-<!doctype html><html lang="pl"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="icon" href="data:,"><title>PRESCOT 3D — taśmy LED</title><meta name="description" content="Modele taśm LED PRESCOT: PREMIUM, DELUX, COB, wypukły WCOB i COB IP67. Podgląd 3D oraz rendery zgaszone i zapalone.">
-<style>*{box-sizing:border-box}body{margin:0;background:#f6f4ef;color:#242822;font-family:Arial,sans-serif}main{max-width:1260px;margin:auto;padding:32px}header{display:flex;justify-content:space-between;align-items:center;gap:20px}header img{width:166px;height:auto}small{font-size:11px;letter-spacing:.12em;color:#75786e;text-transform:uppercase}h1{font-size:34px;font-weight:500;margin:28px 0 10px;letter-spacing:-.04em}p{line-height:1.6;color:#656a60}nav,.tools,.links{display:flex;gap:8px;flex-wrap:wrap}nav{margin:26px 0 16px}.tools{align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}.states{display:flex;gap:6px}button,a{font:inherit;font-size:13px}button{border:1px solid #d7d9cd;background:transparent;border-radius:25px;padding:10px 17px;color:#343b2e;cursor:pointer}button.active{background:#293728;border-color:#293728;color:white}button:hover{border-color:#687561}#toggle{background:white}figure{margin:0;border:1px solid #dedfd4;border-radius:18px;overflow:hidden;background:#e8e5df}.stage{position:relative;height:min(74vw,790px);min-height:380px}#render{width:100%;height:100%;object-fit:contain}#model{position:absolute;inset:0;touch-action:none}#model[hidden]{display:none}#model canvas{display:block}figcaption{padding:18px 22px;background:#fcfbf8;border-top:1px solid #dddcd4;font-size:14px}#hint{position:absolute;bottom:12px;left:16px;font-size:11px;color:#55604b;pointer-events:none}.links{margin-top:22px}a{color:#2b482a;padding:9px 0;margin-right:22px;text-underline-offset:4px}footer{margin-top:22px;max-width:900px}footer p{font-size:12px;line-height:1.6}.status{color:#76796f;font-size:12px}#error{color:#8d3521}@media(max-width:600px){main{padding:20px}h1{font-size:29px}small{max-width:120px;text-align:right;line-height:1.7}.tools{align-items:flex-start}.stage{min-height:420px}button{padding:9px 12px;font-size:12px}}</style>
-<main><header><img src="data:image/png;base64,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" alt="PRESCOT"><small>PRESCOT · modele 3D</small></header>
-<h1>Taśmy LED w łuku</h1><p>Trzy zestawy, dziesięć modeli i trzy stany światła. Obróć taśmy, przybliż szczegóły lub otwórz pliki do edycji.</p>
-<nav><button data-family="PREMIUM" class="active">PREMIUM · 4 modele</button><button data-family="DELUX">DELUX · 3 modele</button><button data-family="COB">COB / WCOB / IP67 · 3 lata</button></nav>
-<div class="tools"><div class="states"><button data-state="ZGASZONE" class="active">Zgaszone</button><button data-state="ZAPALONE">Zapalone</button><button data-state="MIESZANE">Mieszane</button></div><button id="toggle">Obróć model 3D</button></div>
-<figure><div class="stage"><img id="render" src="3D_Z_MODELI/rendery/COB_ZGASZONE.png" alt="COB / WCOB / IP67 — zgaszone"><div id="model" hidden></div><span id="hint" hidden>Przeciągnij, aby obrócić · przewiń, aby przybliżyć</span></div><figcaption id="caption"></figcaption></figure>
-<div class="links"><a id="png" download>Render PNG</a><a id="blend" download>Scena Blender .blend</a><a id="glb" download>Model .glb</a><a href="3D_Z_MODELI/OPIS_MODELI.txt">Źródła i zakres dokładności</a></div>
-<details style="margin-top:26px"><summary style="cursor:pointer;padding:14px 0">Zbliżenia oporników, osłon, logo i pól lutowniczych</summary><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px"><a href="3D_Z_MODELI/rendery/DETAL_PREMIUM140.png"><img loading="lazy" style="width:100%" src="3D_Z_MODELI/rendery/DETAL_PREMIUM140.png" alt="Oryginalne logo PRESCOT LED i CE/RoHS na taśmie PREMIUM"></a><a href="3D_Z_MODELI/rendery/DETAL_RGBW_5PIN.png"><img loading="lazy" style="width:100%" src="3D_Z_MODELI/rendery/DETAL_RGBW_5PIN.png" alt="Pięć pól RGBW"></a><a href="3D_Z_MODELI/rendery/DETAL_DELUX_3IN1_4PIN.png"><img loading="lazy" style="width:100%" src="3D_Z_MODELI/rendery/DETAL_DELUX_3IN1_4PIN.png" alt="Cztery pola DELUX 3in1"></a><a href="3D_Z_MODELI/rendery/DETAL_SLIM.png"><img loading="lazy" style="width:100%" src="3D_Z_MODELI/rendery/DETAL_SLIM.png" alt="Pady i oznaczenia Slim"></a><a href="3D_Z_MODELI/rendery/DETAL_PREMIUM210_OPORNIKI.png"><img loading="lazy" style="width:100%" src="3D_Z_MODELI/rendery/DETAL_PREMIUM210_OPORNIKI.png" alt="PREMIUM 210 — oporniki między diodami"></a><a href="3D_Z_MODELI/rendery/DETAL_WCOB_WYPUKLY.png"><img loading="lazy" style="width:100%" src="3D_Z_MODELI/rendery/DETAL_WCOB_WYPUKLY.png" alt="WCOB — wypukła mleczna osłona bez nadruków"></a><a href="3D_Z_MODELI/rendery/DETAL_COB_IP67_KOSZULKA.png"><img loading="lazy" style="width:100%" src="3D_Z_MODELI/rendery/DETAL_COB_IP67_KOSZULKA.png" alt="COB IP67 — żółty luminofor w przezroczystej koszulce"></a></div></details>
-<footer><p>Modele odtworzone ze zdjęć i danych katalogowych. Wersje 70 i 140 LED/m mają tutaj 24 V, zgodnie ze źródłami. Pełna zgodność produkcyjna 1:1 wymaga potwierdzenia na rysunkach PCB lub fabrycznym CAD.</p><p id="error"></p></footer></main>
-<script>window.MODEL_URLS={"PREMIUM": "3D_Z_MODELI/modele/PREMIUM.glb", "DELUX": "3D_Z_MODELI/modele/DELUX.glb", "COB": "3D_Z_MODELI/modele/COB.glb"};</script><script src="assets/viewer.js"></script></html>
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PRESCOT LED — Architektoniczne Taśmy LED 2026 | Standard KLUŚ · Wizualizacja 3D</title>
+  <meta name="description" content="Inżynieryjny katalog i interaktywna wizualizacja 3D taśm LED Prescot nowej generacji. Jednolita linia światła COB 528, referencyjne CRI Ra > 97 DELUX, podwójne 3oz PCB.">
+  <link rel="icon" href="assets/prescot-logo.svg" type="image/svg+xml">
+
+  <!-- Google Fonts: Montserrat (KLUŚ architectural standard) & Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Montserrat:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       KLUŚ ARCHITECTURAL DESIGN SYSTEM & MODERN WEB GUIDANCE TOKENS
+       ========================================================================== */
+    :root {
+      /* Palette: Biel, szarość, akcenty architekta */
+      --bg-body: #f5f4f0;
+      --bg-panel: #fcfbf8;
+      --bg-surface: #ffffff;
+      --bg-canvas: #f3f2ee;
+      --bg-hover: #efede6;
+      --bg-active: #f2efe6;
+
+      /* Borders & Hairlines */
+      --line: #e5e4df;
+      --line-subtle: #dedfd4;
+      --line-strong: #bfc4b8;
+
+      /* Typography colors */
+      --dark: #24383e;
+      --dark-hover: #384e50;
+      --muted: #737d79;
+      --muted-light: #8b8e86;
+      --dim: #949b92;
+
+      /* Architect Accents (KLUŚ Terra Cotta / Prescot Orange) */
+      --orange: #d95b36;
+      --orange-bright: #e14e26;
+      --orange-soft: rgba(217, 91, 54, 0.09);
+      --orange-border: rgba(217, 91, 54, 0.28);
+
+      /* Typography Stacks */
+      --font-arch: 'Montserrat', -apple-system, sans-serif;
+      --font-body: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      /* Metrics */
+      --radius-sm: 4px;
+      --radius-md: 6px;
+      --radius-lg: 10px;
+      --radius-full: 9999px;
+      --shadow-cad: 0 2px 10px rgba(36, 56, 62, 0.05);
+      --shadow-hover: 0 8px 24px rgba(36, 56, 62, 0.08);
+
+      interpolate-size: allow-keywords;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg-body);
+      color: var(--dark);
+      font-family: var(--font-arch);
+      font-size: 13px;
+    }
+
+    body {
+      overflow-x: hidden;
+      line-height: 1.55;
+      background: var(--bg-body);
+      color: var(--dark);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input, select {
+      font: inherit;
+      color: inherit;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button {
+      border: 0;
+      background: none;
+      cursor: pointer;
+    }
+
+    button:focus-visible, a:focus-visible, select:focus-visible {
+      outline: 2px solid var(--orange);
+      outline-offset: 3px;
+    }
+
+    /* ==========================================================================
+       TOP ARCHITECTURAL HEADER (KLUŚ Standard)
+       ========================================================================== */
+    .header {
+      height: 74px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      padding: 0 36px;
+      border-bottom: 1px solid var(--line);
+      background: var(--bg-panel);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      width: 154px;
+      flex-shrink: 0;
+    }
+
+    .brand img {
+      width: 100%;
+      height: 32px;
+      object-fit: contain;
+    }
+
+    .project-title {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 10.5px;
+      letter-spacing: 1.8px;
+      font-weight: 500;
+      color: var(--dark);
+      text-transform: uppercase;
+    }
+
+    .project-title i {
+      width: 1px;
+      height: 16px;
+      background: var(--line-strong);
+    }
+
+    .project-title span:last-child {
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      list-style: none;
+      margin-left: 20px;
+    }
+
+    .nav-links a {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      color: var(--muted);
+      transition: color 0.2s ease;
+      text-transform: uppercase;
+    }
+
+    .nav-links a:hover {
+      color: var(--orange);
+    }
+
+    .header-actions {
+      margin-left: auto;
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .quiet-btn {
+      padding: 10px 14px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      color: var(--muted);
+      border-radius: var(--radius-sm);
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .quiet-btn:hover {
+      color: var(--dark);
+      background: var(--bg-hover);
+    }
+
+    .primary-btn {
+      background: var(--dark);
+      color: #ffffff;
+      border-radius: var(--radius-sm);
+      padding: 11px 18px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .primary-btn:hover {
+      background: var(--dark-hover);
+      color: #ffffff;
+    }
+
+    .accent-btn {
+      background: var(--orange);
+      color: #ffffff;
+      border-radius: var(--radius-sm);
+      padding: 11px 18px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .accent-btn:hover {
+      background: var(--orange-bright);
+    }
+
+    /* ==========================================================================
+       HERO & 3D STUDIO STAGE (Architectural Workbench)
+       ========================================================================== */
+    .stage-section {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 360px;
+      height: calc(100vh - 74px);
+      min-height: 640px;
+      position: relative;
+      border-bottom: 1px solid var(--line);
+      background: var(--bg-canvas);
+    }
+
+    /* Left 3D Viewport */
+    #viewport {
+      position: relative;
+      overflow: hidden;
+      min-width: 0;
+      background: var(--bg-canvas);
+    }
+
+    #canvas-host {
+      position: absolute;
+      inset: 0;
+      cursor: grab;
+    }
+
+    #canvas-host:active {
+      cursor: grabbing;
+    }
+
+    #canvas-host canvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+      outline: none;
+    }
+
+    /* CAD View Heading overlay */
+    .view-heading {
+      position: absolute;
+      left: 34px;
+      top: 30px;
+      z-index: 5;
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 9.5px;
+      letter-spacing: 2.2px;
+      text-transform: uppercase;
+      color: var(--muted-light);
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .view-heading h1 {
+      font-weight: 600;
+      font-size: 26px;
+      letter-spacing: -0.5px;
+      color: var(--dark);
+      margin: 0 0 6px 0;
+      line-height: 1.15;
+    }
+
+    .view-heading p {
+      font-size: 11.5px;
+      color: var(--muted);
+      margin: 0;
+      font-family: var(--font-body);
+    }
+
+    .view-heading p span {
+      padding: 0 6px;
+      color: var(--dim);
+    }
+
+    /* Floating CAD Dimension Badges (dim-label) */
+    .cad-badges {
+      position: absolute;
+      left: 34px;
+      bottom: 74px;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      z-index: 5;
+      pointer-events: none;
+    }
+
+    .dim-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: #3a4d4b;
+      padding: 5px 9px;
+      border-radius: var(--radius-sm);
+      background: #fdfdfbf5;
+      border: 1px solid #e1e5dc;
+      box-shadow: 0 2px 5px rgba(38, 54, 44, 0.05);
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      width: fit-content;
+    }
+
+    .dim-label .dim-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--orange);
+    }
+
+    /* Viewport Quick Tools (Top Right) */
+    .viewport-tools {
+      position: absolute;
+      right: 24px;
+      top: 26px;
+      display: flex;
+      gap: 8px;
+      z-index: 6;
+    }
+
+    .tool-btn {
+      background: #fcfbf8e8;
+      height: 36px;
+      padding: 0 12px;
+      border: 1px solid #dddeda;
+      border-radius: var(--radius-sm);
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--dark);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+      transition: all 0.2s ease;
+    }
+
+    .tool-btn:hover {
+      background: #ffffff;
+      border-color: #bfc4b8;
+    }
+
+    .tool-btn.active {
+      background: var(--dark);
+      color: #ffffff;
+      border-color: var(--dark);
+    }
+
+    /* Floating Camera Bar (KLUŚ standard) */
+    .camera-bar {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 4px;
+      display: flex;
+      white-space: nowrap;
+      border: 1px solid #e4e4de;
+      border-radius: 8px;
+      background: #fdfcf9ed;
+      box-shadow: 0 4px 18px rgba(41, 57, 59, 0.06);
+      z-index: 6;
+      backdrop-filter: blur(8px);
+    }
+
+    .camera-bar button {
+      font-size: 10.5px;
+      font-weight: 500;
+      padding: 8px 14px;
+      border-radius: 5px;
+      color: var(--muted);
+      transition: all 0.18s ease;
+      letter-spacing: 0.3px;
+    }
+
+    .camera-bar button:hover {
+      color: var(--dark);
+    }
+
+    .camera-bar button.active {
+      background: var(--dark);
+      color: #ffffff;
+    }
+
+    /* Viewport Hint Footer */
+    .view-footer {
+      position: absolute;
+      bottom: 8px;
+      left: 34px;
+      right: 34px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 9.5px;
+      color: var(--dim);
+      pointer-events: none;
+    }
+
+    .view-footer b {
+      font-weight: 500;
+      color: var(--muted);
+    }
+
+    /* ==========================================================================
+       RIGHT ARCHITECTURAL CONTROLS SIDEBAR (KLUŚ Standard)
+       ========================================================================== */
+    .sidebar {
+      border-left: 1px solid var(--line);
+      background: var(--bg-panel);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      z-index: 10;
+    }
+
+    .sidebar-tabs {
+      display: flex;
+      border-bottom: 1px solid var(--line);
+      padding: 0 24px;
+      gap: 24px;
+      flex-shrink: 0;
+    }
+
+    .sidebar-tabs button {
+      padding: 18px 0 14px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      color: var(--dim);
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s ease;
+    }
+
+    .sidebar-tabs button:hover {
+      color: var(--dark);
+    }
+
+    .sidebar-tabs button.active {
+      color: var(--dark);
+      border-bottom-color: var(--orange);
+    }
+
+    .panel-content {
+      padding: 24px;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .section-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .section-title-row h2 {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--dark);
+      margin: 0;
+    }
+
+    .status-live-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #719278;
+    }
+
+    /* Series Selector Chips */
+    .series-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .series-chip {
+      border: 1px solid var(--line-subtle);
+      border-radius: var(--radius-sm);
+      background: #ffffff;
+      padding: 12px 10px;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+
+    .series-chip:hover {
+      border-color: #bfc4b8;
+      background: var(--bg-hover);
+    }
+
+    .series-chip.active {
+      background: var(--bg-active);
+      border-color: #bfc4b8;
+      box-shadow: 0 1px 4px rgba(36, 56, 62, 0.04);
+    }
+
+    .series-chip strong {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--dark);
+      display: block;
+    }
+
+    .series-chip span {
+      font-size: 9.5px;
+      color: var(--muted);
+      display: block;
+      margin-top: 3px;
+      font-family: var(--font-mono);
+    }
+
+    /* KLUŚ Architectural Switch Row */
+    .switch-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      font-size: 11.5px;
+      font-weight: 500;
+      color: var(--dark);
+      padding: 4px 0;
+    }
+
+    .switch-row input {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .toggle-ui {
+      width: 32px;
+      height: 18px;
+      border-radius: 12px;
+      background: #d8dbd4;
+      position: relative;
+      transition: background 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .toggle-ui::after {
+      content: '';
+      position: absolute;
+      left: 3px;
+      top: 3px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #ffffff;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+      transition: transform 0.2s ease;
+    }
+
+    .switch-row input:checked + .toggle-ui {
+      background: var(--dark-hover);
+    }
+
+    .switch-row input:checked + .toggle-ui::after {
+      transform: translateX(14px);
+    }
+
+    /* Architectural Slider Block */
+    .slider-box {
+      border: 1px solid var(--line-subtle);
+      border-radius: var(--radius-sm);
+      background: #ffffff;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .slider-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 10.5px;
+      font-weight: 500;
+      color: var(--muted);
+    }
+
+    .slider-header strong {
+      font-family: var(--font-mono);
+      color: var(--orange);
+      font-weight: 600;
+      font-size: 11.5px;
+    }
+
+    .arch-slider {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 6px;
+      border-radius: 3px;
+      outline: none;
+      background: #e2e2dc;
+      cursor: pointer;
+    }
+
+    .arch-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 2px solid var(--dark);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+      cursor: pointer;
+    }
+
+    .cct-slider {
+      background: linear-gradient(90deg, #ff9e42 0%, #ffc58a 35%, #fff4e6 65%, #c8dcff 100%);
+    }
+
+    /* Technical Spec Mini Table */
+    .tech-table {
+      width: 100%;
+      font-size: 10.5px;
+      border-collapse: collapse;
+      margin-top: 4px;
+    }
+
+    .tech-table tr {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tech-table td {
+      padding: 7px 0;
+      color: var(--muted);
+    }
+
+    .tech-table td:last-child {
+      text-align: right;
+      font-weight: 600;
+      color: var(--dark);
+      font-family: var(--font-mono);
+    }
+
+    /* Sidebar Footer Status */
+    .sidebar-footer {
+      padding: 14px 24px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 9.5px;
+      color: var(--muted-light);
+      background: var(--bg-panel);
+    }
+
+    /* ==========================================================================
+       SCROLLYTELLING JOURNEY: ARCHITECTURAL DETAIL & COMPARISONS
+       ========================================================================== */
+    .story-section {
+      padding: 90px 48px;
+      max-width: 1320px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      margin-bottom: 50px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .section-title {
+      font-size: 32px;
+      font-weight: 600;
+      color: var(--dark);
+      letter-spacing: -0.8px;
+      margin: 8px 0 0 0;
+      line-height: 1.15;
+    }
+
+    .section-lead {
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 580px;
+      line-height: 1.6;
+      font-family: var(--font-body);
+      margin: 0;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .story-card {
+      background: var(--bg-panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    .story-card:hover {
+      border-color: #bfc4b8;
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-2px);
+    }
+
+    .story-media {
+      position: relative;
+      height: 200px;
+      background: #efede7;
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .story-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .story-card:hover .story-media img {
+      transform: scale(1.05);
+    }
+
+    .story-tag {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 600;
+      padding: 3px 7px;
+      border-radius: 3px;
+      background: #fcfbf8f2;
+      border: 1px solid #d9dcd2;
+      color: var(--dark);
+      letter-spacing: 0.8px;
+    }
+
+    .story-body {
+      padding: 22px 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+
+    .story-body .num {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--orange);
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .story-body h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .story-body p {
+      font-size: 12.5px;
+      color: var(--muted);
+      line-height: 1.6;
+      font-family: var(--font-body);
+      margin-bottom: 16px;
+    }
+
+    .story-specs {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--muted-light);
+      border-top: 1px solid var(--line);
+      padding-top: 10px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* ==========================================================================
+       LIGHT LAB & ENGINEERING SIZING CALCULATOR
+       ========================================================================== */
+    .lab-section {
+      background: var(--bg-panel);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 80px 48px;
+    }
+
+    .lab-container {
+      max-width: 1320px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .lab-display {
+      position: relative;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line);
+      background: #f0eee8;
+      overflow: hidden;
+      aspect-ratio: 16 / 10;
+      box-shadow: 0 4px 20px rgba(36, 56, 62, 0.05);
+    }
+
+    .lab-display img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .lab-glow {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      mix-blend-mode: multiply;
+      opacity: 0.6;
+      transition: background 0.3s ease, opacity 0.3s ease;
+    }
+
+    .lab-card {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 34px;
+      box-shadow: var(--shadow-cad);
+    }
+
+    .calc-metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+    }
+
+    .metric-tile {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .metric-tile .num {
+      font-family: var(--font-mono);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--dark);
+      letter-spacing: -0.5px;
+    }
+
+    .metric-tile .sub {
+      font-size: 10.5px;
+      color: var(--muted);
+      margin-top: 3px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* ==========================================================================
+       TECHNICAL CATALOG 2026 & CAD HUB
+       ========================================================================== */
+    .catalog-section {
+      padding: 90px 48px;
+      max-width: 1320px;
+      margin: 0 auto;
+    }
+
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .catalog-card {
+      background: var(--bg-panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: all 0.25s ease;
+    }
+
+    .catalog-card:hover {
+      border-color: #bfc4b8;
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-3px);
+    }
+
+    .catalog-card-header {
+      position: relative;
+      height: 220px;
+      background: #eceae3;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .catalog-card-header img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .catalog-card-body {
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+
+    .catalog-card-title {
+      font-size: 19px;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 4px;
+    }
+
+    .catalog-card-sku {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--orange);
+      margin-bottom: 18px;
+    }
+
+    .cad-action-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+
+    .cad-btn {
+      flex: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 10px 12px;
+      border-radius: var(--radius-sm);
+      background: #ffffff;
+      border: 1px solid #d9dcd2;
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      font-weight: 500;
+      color: var(--dark);
+      transition: all 0.2s ease;
+    }
+
+    .cad-btn:hover {
+      border-color: var(--dark);
+      background: var(--bg-hover);
+    }
+
+    /* ==========================================================================
+       MODERN WEB GUIDANCE: NATIVE <dialog> FOR ARCHITECTURAL QUOTE
+       ========================================================================== */
+    dialog.arch-modal {
+      position: fixed;
+      inset: 0;
+      margin: auto;
+      max-width: 620px;
+      width: 92%;
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 34px;
+      box-shadow: 0 20px 70px rgba(36, 56, 62, 0.2);
+      color: var(--dark);
+      opacity: 0;
+      transform: scale(0.97) translateY(12px);
+      transition: opacity 0.25s ease, transform 0.25s ease, display 0.25s allow-discrete, overlay 0.25s allow-discrete;
+    }
+
+    dialog.arch-modal[open] {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+
+    @starting-style {
+      dialog.arch-modal[open] {
+        opacity: 0;
+        transform: scale(0.97) translateY(12px);
+      }
+    }
+
+    dialog.arch-modal::backdrop {
+      background: rgba(36, 56, 62, 0.45);
+      backdrop-filter: blur(4px);
+      opacity: 0;
+      transition: opacity 0.25s ease, display 0.25s allow-discrete, overlay 0.25s allow-discrete;
+    }
+
+    dialog.arch-modal[open]::backdrop {
+      opacity: 1;
+    }
+
+    @starting-style {
+      dialog.arch-modal[open]::backdrop {
+        opacity: 0;
+      }
+    }
+
+    .modal-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 22px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 16px;
+    }
+
+    .modal-head strong {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    .modal-close {
+      font-size: 20px;
+      color: var(--muted);
+      padding: 4px;
+      line-height: 1;
+    }
+
+    .modal-close:hover {
+      color: var(--dark);
+    }
+
+    .field-group {
+      margin-bottom: 16px;
+    }
+
+    .field-group label {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .field-input, .field-select {
+      width: 100%;
+      padding: 11px 12px;
+      border: 1px solid #d8ded2;
+      border-radius: var(--radius-sm);
+      font-size: 12.5px;
+      background: #ffffff;
+      color: var(--dark);
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .field-input:focus, .field-select:focus {
+      border-color: var(--dark);
+    }
+
+    .field-input:user-invalid {
+      border-color: #d95b36;
+    }
+
+    /* Site Footer (Architectural KLUŚ Standard) */
+    .site-footer {
+      border-top: 1px solid var(--line);
+      background: var(--bg-panel);
+      padding: 48px 48px 36px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .footer-left {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .footer-copy {
+      font-size: 11.5px;
+      color: var(--muted);
+      font-family: var(--font-body);
+    }
+
+    /* Responsive */
+    @media (max-width: 1100px) {
+      .stage-section {
+        grid-template-columns: minmax(0, 1fr) 300px;
+      }
+      .story-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .catalog-grid {
+        grid-template-columns: 1fr;
+      }
+      .lab-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 820px) {
+      .header {
+        padding: 0 16px;
+        gap: 12px;
+      }
+      .project-title, .nav-links {
+        display: none;
+      }
+      .stage-section {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+      }
+      #viewport {
+        height: 60vh;
+        min-height: 440px;
+      }
+      .sidebar {
+        border-left: 0;
+        border-top: 1px solid var(--line);
+      }
+      .story-grid {
+        grid-template-columns: 1fr;
+      }
+      .story-section, .lab-section, .catalog-section {
+        padding: 50px 20px;
+      }
+      .site-footer {
+        padding: 30px 20px;
+      }
+    }
+  </style>
+
+  <!-- Import map for Three.js (Local vendor files) -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "./vendor/three/build/three.module.js",
+      "three/addons/": "./vendor/three/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ========================================================================
+       TOP ARCHITECTURAL HEADER
+       ======================================================================== -->
+  <header class="header">
+    <a href="#" class="brand" aria-label="Prescot LED">
+      <img src="assets/prescot-logo.svg" alt="PRESCOT LED">
+    </a>
+
+    <div class="project-title">
+      <span>TAŚMY LED 3D</span>
+      <i></i>
+      <span>STANDARD ARCHITEKTONICZNY · 2026</span>
+    </div>
+
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#viewport">Model 3D</a></li>
+        <li><a href="#detale">Detal Inżynieryjny</a></li>
+        <li><a href="#laboratorium">Laboratorium</a></li>
+        <li><a href="#katalog">Katalog CAD</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <a href="3D_Z_MODELI/modele/COB.glb" download class="quiet-btn">
+        <span>Pobierz GLB</span>
+        <span>↓</span>
+      </a>
+      <button class="primary-btn" onclick="document.querySelector('#quote-modal').showModal()">
+        <span>Wycena B2B</span>
+        <span>↗</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       HERO & 3D STUDIO STAGE
+       ======================================================================== -->
+  <main class="stage-section">
+    <!-- Left: WebGL Viewport -->
+    <section id="viewport" aria-label="Interaktywny model 3D taśmy LED">
+      <div class="view-heading">
+        <span class="eyebrow">INŻYNIERIA ŚWIATŁA · PRECYZJA KLUŚ &amp; PRESCOT</span>
+        <h1 id="active-title-heading">Seria COB 24V Bezpunktowa</h1>
+        <p>528 mikrodiod/m <span>·</span> luminofor ciągły <span>·</span> podwójna miedź 3oz</p>
+      </div>
+
+      <!-- CAD Dimension Labels -->
+      <div class="cad-badges">
+        <div class="dim-label">
+          <span class="dim-dot"></span>
+          <span id="badge-chips">528 CHIPÓW / METR</span>
+        </div>
+        <div class="dim-label">
+          <span class="dim-dot"></span>
+          <span id="badge-voltage">24 V DC STABILIZACJA</span>
+        </div>
+        <div class="dim-label">
+          <span class="dim-dot"></span>
+          <span id="badge-pcb">PODWÓJNE PCB 3oz MIEDŹ</span>
+        </div>
+      </div>
+
+      <!-- Quick Viewport Tools -->
+      <div class="viewport-tools">
+        <button id="btn-toggle-light" class="tool-btn active" title="Przełącz zasilanie światła">
+          <span id="tool-light-icon">⚡</span>
+          <span id="tool-light-text">Światło Wł.</span>
+        </button>
+        <button id="btn-reset-cam" class="tool-btn" title="Resetuj perspektywę">↺</button>
+      </div>
+
+      <!-- 3D WebGL Canvas Host -->
+      <div id="canvas-host" title="Przeciągnij lewym przyciskiem myszy, aby obrócić model 3D"></div>
+
+      <!-- Floating Camera Toolbar -->
+      <div class="camera-bar" aria-label="Ujęcia kamery">
+        <button class="active" id="cam-iso">Perspektywa</button>
+        <button id="cam-macro">Makro Dioda</button>
+        <button id="cam-pcb">Przekrój PCB</button>
+        <button id="cam-top">Z Góry 90°</button>
+      </div>
+
+      <div class="view-footer">
+        <span><b>Przeciągnij</b> — obrót <em>·</em> <b>Kółko</b> — zoom <em>·</em> <b>Prawy przycisk</b> — przesunięcie</span>
+        <span id="fps-counter" style="font-family: var(--font-mono);">60 FPS</span>
+      </div>
+    </section>
+
+    <!-- Right: Architectural Controls Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-tabs">
+        <button class="active" data-tab="model">Parametry</button>
+        <button data-tab="specs">Wymiary</button>
+      </div>
+
+      <div class="panel-content">
+        <!-- Series Selector -->
+        <div>
+          <div class="section-title-row">
+            <h2>Rodzina Taśmy LED</h2>
+            <span class="status-live-dot"></span>
+          </div>
+          <div class="series-grid">
+            <button class="series-chip active" data-family="COB">
+              <strong>COB 528</strong>
+              <span>Bezpunktowa 24V</span>
+            </button>
+            <button class="series-chip" data-family="DELUX">
+              <strong>DELUX 97+</strong>
+              <span>CRI Ra &gt; 97</span>
+            </button>
+            <button class="series-chip" data-family="PREMIUM">
+              <strong>PREMIUM</strong>
+              <span>140/210 LED 24V</span>
+            </button>
+            <button class="series-chip" data-family="WCOB">
+              <strong>WCOB Wypukła</strong>
+              <span>Ochrona Klosza</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Power & Light Switch -->
+        <label class="switch-row">
+          <span>Emisja Światła (Zasilanie 24V)</span>
+          <input type="checkbox" id="check-light-power" checked>
+          <span class="toggle-ui"></span>
+        </label>
+
+        <!-- Temperature Barwy (Kelvin Slider) -->
+        <div class="slider-box">
+          <div class="slider-header">
+            <span>Temperatura Barwowa CCT</span>
+            <strong id="kelvin-readout">3000K</strong>
+          </div>
+          <input type="range" id="slider-kelvin" class="arch-slider cct-slider" min="2400" max="6500" step="50" value="3000">
+        </div>
+
+        <!-- Jasność / Ściemniacz -->
+        <div class="slider-box">
+          <div class="slider-header">
+            <span>Ściemniacz (Dimmer PWM)</span>
+            <strong id="dimmer-readout">100%</strong>
+          </div>
+          <input type="range" id="slider-dimmer" class="arch-slider" min="0" max="100" step="1" value="100">
+        </div>
+
+        <!-- Technical Specification Sheet -->
+        <div>
+          <div class="section-title-row">
+            <h2>Karta Parametrów</h2>
+          </div>
+          <table class="tech-table">
+            <tr><td>Napięcie zasilania</td><td id="spec-volt">24 V DC</td></tr>
+            <tr><td>Gęstość liniowa</td><td id="spec-dens">528 LED / m</td></tr>
+            <tr><td>Szerokość podkładu</td><td id="spec-width">8.0 mm / 10.0 mm</td></tr>
+            <tr><td>Grubość miedzi</td><td id="spec-cu">Podwójne 3oz Cu</td></tr>
+            <tr><td>Wskaźnik oddawania barw</td><td id="spec-cri">Ra &gt; 90 (DELUX &gt; 97)</td></tr>
+            <tr><td>Sekcja cięcia (One-Cut)</td><td id="spec-cut">Co 25 mm</td></tr>
+            <tr><td>Gwarancja fabryczna</td><td id="spec-warr">5 do 7 Lat</td></tr>
+          </table>
+        </div>
+
+        <button class="primary-btn" style="width: 100%; justify-content: center; margin-top: auto;" onclick="document.querySelector('#quote-modal').showModal()">
+          <span>Skonfiguruj Ofertę Projektową</span>
+        </button>
+      </div>
+
+      <div class="sidebar-footer">
+        <span class="status-live-dot"></span>
+        <span>Modele CAD 1:1 · Prescot Sp. z o.o. Giżycko</span>
+      </div>
+    </aside>
+  </main>
+
+  <!-- ========================================================================
+       SCROLLYTELLING JOURNEY: ARCHITECTURAL DETAIL
+       ======================================================================== -->
+  <section id="detale" class="story-section">
+    <div class="section-header">
+      <div>
+        <span class="eyebrow">DOKŁADNOŚĆ WYKONANIA · DETAL INŻYNIERYJNY</span>
+        <h2 class="section-title">Dlaczego Architekci Wybierają Prescot?</h2>
+      </div>
+      <p class="section-lead">
+        W nowoczesnych projektach oświetlenia liniowego KLUŚ i Prescot profil aluminiowy oraz źródło światła stanowią jedność. Każdy detal został zaprojektowany z myślą o zerowej awaryjności i idealnej estetyce.
+      </p>
+    </div>
+
+    <div class="story-grid">
+      <!-- 01: COB -->
+      <article class="story-card" data-focus="cob">
+        <div class="story-media">
+          <span class="story-tag">528 LED / m</span>
+          <img src="3D_Z_MODELI/rendery/COB_ZAPALONE.png" alt="Taśma LED COB jednolita linia" loading="lazy">
+        </div>
+        <div class="story-body">
+          <div>
+            <span class="num">01 / TECHNOLOGIA COB</span>
+            <h3>Jednolita Linia Światła</h3>
+            <p>
+              Koniec z widocznymi punktami diod w płytkich profilach meblowych (np. KLUŚ MICRO-ALU). Warstwa ciągłego luminoforu tworzy perfekcyjną, gładką taflę światła.
+            </p>
+          </div>
+          <div class="story-specs">
+            <span>Kąt emisji: 180°</span>
+            <span>Brak plam świetlnych</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 02: DELUX CRI > 97 -->
+      <article class="story-card" data-focus="delux">
+        <div class="story-media">
+          <span class="story-tag">CRI Ra &gt; 97</span>
+          <img src="3D_Z_MODELI/rendery/DELUX_ZAPALONE.png" alt="Taśma LED DELUX CRI97" loading="lazy">
+        </div>
+        <div class="story-body">
+          <div>
+            <span class="num">02 / WIERNOŚĆ BARW</span>
+            <h3>Referencyjny Wskaźnik R9 &gt; 90</h3>
+            <p>
+              Standardowe taśmy LED gaszą barwę naturalnego dębu, marmuru i tkanin. Seria DELUX emituje pełne spektrum słoneczne, gwarantując wierne nasycenie każdego materiału.
+            </p>
+          </div>
+          <div class="story-specs">
+            <span>MacAdam: 3-Step</span>
+            <span>Gwarancja: 7 Lat</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 03: 3oz Copper -->
+      <article class="story-card" data-focus="pcb">
+        <div class="story-media">
+          <span class="story-tag">3oz Cu SUBSTRATE</span>
+          <img src="3D_Z_MODELI/rendery/DETAL_PREMIUM210_OPORNIKI.png" alt="Miedź 3oz na PCB taśmy LED" loading="lazy">
+        </div>
+        <div class="story-body">
+          <div>
+            <span class="num">03 / INŻYNIERIA PCB</span>
+            <h3>Podwójna Miedź 3oz</h3>
+            <p>
+              Podwójny podkład miedzi elektrolitycznej skutecznie odprowadza ciepło do profilu aluminiowego i zapobiega spadkom napięcia nawet na 10-metrowych odcinkach.
+            </p>
+          </div>
+          <div class="story-specs">
+            <span>Spadek: &lt; 0.3V</span>
+            <span>Miedź: 3 uncje</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 04: One-Cut -->
+      <article class="story-card" data-focus="onecut">
+        <div class="story-media">
+          <span class="story-tag">CIĘCIE CO 25mm</span>
+          <img src="3D_Z_MODELI/rendery/DETAL_PREMIUM140.png" alt="Sekcje cięcia One Cut" loading="lazy">
+        </div>
+        <div class="story-body">
+          <div>
+            <span class="num">04 / PRECYZJA MONTAŻU</span>
+            <h3>Sekcje Cięcia One-Cut</h3>
+            <p>
+              Cynowane pola lutownicze rozmieszczone gęsto co 25 mm ułatwiają szybkie dopasowanie długości taśmy do frezów w meblach i nisz sufitowych bez martwych stref.
+            </p>
+          </div>
+          <div class="story-specs">
+            <span>Pola: Cynowane</span>
+            <span>Klej: 3M 300LSE</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       LIGHT LAB & ENGINEERING SIZING CALCULATOR
+       ======================================================================== -->
+  <section id="laboratorium" class="lab-section">
+    <div class="lab-container">
+      <div class="lab-display">
+        <img id="lab-preview-img" src="3D_Z_MODELI/rendery/COB_ZAPALONE.png" alt="Symulacja laboratoryjna światła">
+        <div class="lab-glow" id="lab-ambient-glow"></div>
+      </div>
+
+      <div class="lab-card">
+        <span class="eyebrow">LABORATORIUM DOBORU INSTALACJI</span>
+        <h2 style="font-size: 24px; font-weight: 600; color: var(--dark); margin: 6px 0 16px 0;">
+          Kalkulator Mocy i Zasilacza 24V
+        </h2>
+        <p style="font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 24px; font-family: var(--font-body);">
+          Określ planowaną długość linii świetlnej. Narzędzie obliczy zapotrzebowanie na moc, bezpieczny zapas dla zasilacza 24V oraz generowany strumień świetlny.
+        </p>
+
+        <!-- Długość instalacji -->
+        <div class="field-group">
+          <div style="display: flex; justify-content: space-between; font-size: 11px; font-weight: 600; text-transform: uppercase; color: var(--muted); margin-bottom: 6px;">
+            <span>Długość linii świetlnej</span>
+            <strong id="calc-val-length" style="color: var(--orange); font-family: var(--font-mono); font-size: 12px;">5.0 m</strong>
+          </div>
+          <input type="range" id="input-length" class="arch-slider" min="1" max="25" step="0.5" value="5">
+        </div>
+
+        <!-- Seria taśmy -->
+        <div class="field-group">
+          <label for="select-series">Typ Taśmy Prescot</label>
+          <select id="select-series" class="field-select">
+            <option value="COB-10W">Seria COB 24V — 10 W/m (1000 lm/m) · Akcent meblowy</option>
+            <option value="COB-15W" selected>Seria COB 24V — 15 W/m (1550 lm/m) · Oświetlenie główne</option>
+            <option value="DELUX-16W">Seria DELUX 24V — 16 W/m (1750 lm/m) · CRI Ra &gt; 97</option>
+            <option value="PREMIUM-9.6W">Seria PREMIUM 24V — 9.6 W/m (960 lm/m) · Standard liniowy</option>
+          </select>
+        </div>
+
+        <!-- Calculation Results -->
+        <div class="calc-metrics-grid">
+          <div class="metric-tile">
+            <span class="num" id="calc-res-power">75.0 W</span>
+            <span class="sub">Moc czynna taśmy</span>
+          </div>
+          <div class="metric-tile">
+            <span class="num" id="calc-res-psu" style="color: var(--orange);">90 W</span>
+            <span class="sub">Zasilacz (+20% zapas)</span>
+          </div>
+          <div class="metric-tile">
+            <span class="num" id="calc-res-lumens">7 750 lm</span>
+            <span class="sub">Strumień całkowity</span>
+          </div>
+        </div>
+
+        <button class="primary-btn" style="width: 100%; justify-content: center; margin-top: 24px;" onclick="document.querySelector('#quote-modal').showModal()">
+          <span>Wygeneruj Zestawienie dla Inwestora</span>
+          <span>↗</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       TECHNICAL CATALOG 2026 & CAD HUB
+       ======================================================================== -->
+  <section id="katalog" class="catalog-section">
+    <div class="section-header">
+      <div>
+        <span class="eyebrow">OFICJALNE PLIKI CAD &amp; DANE PRODUKCYJNE</span>
+        <h2 class="section-title">Katalog Serii i Modele 3D dla Architektów</h2>
+      </div>
+      <p class="section-lead">
+        Pobierz certyfikowane modele 3D (.GLB), pliki źródłowe Blender (.BLEND) oraz karty katalogowe do wdrożenia w projektach KLUŚ, SketchUp, Revit i 3ds Max.
+      </p>
+    </div>
+
+    <div class="catalog-grid">
+      <!-- COB Card -->
+      <div class="catalog-card">
+        <div class="catalog-card-header">
+          <img src="3D_Z_MODELI/rendery/COB_MIESZANE.png" alt="Taśma LED COB" loading="lazy">
+        </div>
+        <div class="catalog-card-body">
+          <div>
+            <h3 class="catalog-card-title">Seria COB 24V Bezpunktowa</h3>
+            <div class="catalog-card-sku">SKU: TAŚ000222 / EC252 · Gwarancja 3–5 Lat</div>
+            <table class="tech-table">
+              <tr><td>Napięcie robocze</td><td>24 V DC</td></tr>
+              <tr><td>Gęstość</td><td>528 chipów / m</td></tr>
+              <tr><td>Moc znamionowa</td><td>10 W/m &ndash; 15 W/m</td></tr>
+              <tr><td>Kąt świecenia</td><td>180° ciągła linia</td></tr>
+              <tr><td>Stopień szczelności</td><td>IP20 / IP67 Koszulka</td></tr>
+            </table>
+          </div>
+          <div class="cad-action-row">
+            <a href="3D_Z_MODELI/modele/COB.glb" download class="cad-btn">Model .GLB</a>
+            <a href="3D_Z_MODELI/modele/COB_EDYTOWALNE.blend" download class="cad-btn">Blender .BLEND</a>
+            <a href="3D_Z_MODELI/rendery/COB_ZAPALONE.png" download class="cad-btn">Render 4K</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- DELUX Card -->
+      <div class="catalog-card">
+        <div class="catalog-card-header">
+          <img src="3D_Z_MODELI/rendery/DELUX_MIESZANE.png" alt="Taśma LED DELUX" loading="lazy">
+        </div>
+        <div class="catalog-card-body">
+          <div>
+            <h3 class="catalog-card-title">Seria DELUX 24V CRI97+</h3>
+            <div class="catalog-card-sku">SKU: 24D002-050-10-NW · Gwarancja 7 Lat</div>
+            <table class="tech-table">
+              <tr><td>Napięcie robocze</td><td>24 V DC</td></tr>
+              <tr><td>Wskaźnik CRI</td><td>Ra &gt; 97 (R9 &gt; 90)</td></tr>
+              <tr><td>Diody</td><td>SMD 2835 Sanan Gold</td></tr>
+              <tr><td>Binowanie</td><td>3-Step MacAdam</td></tr>
+              <tr><td>Podkład PCB</td><td>3oz Podwójna Miedź</td></tr>
+            </table>
+          </div>
+          <div class="cad-action-row">
+            <a href="3D_Z_MODELI/modele/DELUX.glb" download class="cad-btn">Model .GLB</a>
+            <a href="3D_Z_MODELI/modele/DELUX_EDYTOWALNE.blend" download class="cad-btn">Blender .BLEND</a>
+            <a href="3D_Z_MODELI/rendery/DELUX_ZAPALONE.png" download class="cad-btn">Render 4K</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PREMIUM Card -->
+      <div class="catalog-card">
+        <div class="catalog-card-header">
+          <img src="3D_Z_MODELI/rendery/PREMIUM_MIESZANE.png" alt="Taśma LED PREMIUM" loading="lazy">
+        </div>
+        <div class="catalog-card-body">
+          <div>
+            <h3 class="catalog-card-title">Seria PREMIUM 24V Inżynieryjna</h3>
+            <div class="catalog-card-sku">SKU: 24E009-050-8 · Gwarancja 5 Lat</div>
+            <table class="tech-table">
+              <tr><td>Napięcie robocze</td><td>24 V DC / 12 V DC</td></tr>
+              <tr><td>Dostępne gęstości</td><td>70 / 140 / 210 LED/m</td></tr>
+              <tr><td>Specjalne wersje</td><td>Slim 4mm, RGBW 5-pin</td></tr>
+              <tr><td>Żywotność L80B10</td><td>&gt; 54 000 godzin</td></tr>
+              <tr><td>Warstwa klejąca</td><td>3M 300LSE termoprzewodząca</td></tr>
+            </table>
+          </div>
+          <div class="cad-action-row">
+            <a href="3D_Z_MODELI/modele/PREMIUM.glb" download class="cad-btn">Model .GLB</a>
+            <a href="3D_Z_MODELI/modele/PREMIUM_EDYTOWALNE.blend" download class="cad-btn">Blender .BLEND</a>
+            <a href="3D_Z_MODELI/rendery/PREMIUM_ZAPALONE.png" download class="cad-btn">Render 4K</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       MODERN WEB GUIDANCE: NATIVE <dialog> FOR ARCHITECTURAL QUOTE
+       ======================================================================== -->
+  <dialog id="quote-modal" class="arch-modal">
+    <div class="modal-head">
+      <strong>Wycena Inwestycyjna B2B · Prescot LED</strong>
+      <button class="modal-close" onclick="document.querySelector('#quote-modal').close()" aria-label="Zamknij">✕</button>
+    </div>
+
+    <form method="dialog" id="form-quote" onsubmit="event.preventDefault(); alert('Dziękujemy! Twoje zapytanie architektoniczne zostało przekazane do działu B2B Prescot.'); document.querySelector('#quote-modal').close();">
+      <div class="field-group">
+        <label for="inp-firm">Pracownia Architektoniczna / Firma</label>
+        <input type="text" id="inp-firm" class="field-input" placeholder="np. Studio Projektowe Wnętrz" required>
+      </div>
+
+      <div class="field-group">
+        <label for="inp-mail">Adres E-mail do Oferty</label>
+        <input type="email" id="inp-mail" class="field-input" placeholder="kontakt@twojapracownia.pl" required>
+      </div>
+
+      <div class="field-group">
+        <label for="inp-nip">NIP (do rabatów hurtowych B2B)</label>
+        <input type="text" id="inp-nip" class="field-input" placeholder="np. 8451992744">
+      </div>
+
+      <div class="field-group">
+        <label>Konfiguracja z Modelu 3D</label>
+        <div style="padding: 10px 12px; background: #f5f4f0; border: 1px solid var(--line); border-radius: 4px; font-family: var(--font-mono); font-size: 11px; color: var(--dark);" id="modal-config-summary">
+          Seria: COB 24V | Barwa: 3000K | Długość: 5.0m | Zasilacz: 90W 24V
+        </div>
+      </div>
+
+      <button type="submit" class="accent-btn" style="width: 100%; justify-content: center; padding: 13px; font-size: 12px; margin-top: 10px;">
+        Prześlij Zapytanie do Obsługi Inwestycji
+      </button>
+    </form>
+  </dialog>
+
+  <!-- ========================================================================
+       SITE FOOTER
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="footer-left">
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <img src="assets/prescot-logo.svg" alt="PRESCOT LED" style="height: 24px;">
+        <span style="font-size: 11px; color: var(--muted); font-family: var(--font-mono);">Sp. z o.o. · Giżycko · NIP 8451992744</span>
+      </div>
+      <p class="footer-copy">
+        Oficjalny hub technologiczny 3D taśm LED Prescot w standardzie architektonicznym KLUŚ.
+      </p>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 18px; font-size: 11.5px; color: var(--muted);">
+      <span>E-mail: <strong>biuro@prescot.pl</strong></span>
+      <span>·</span>
+      <span>Dział Handlowy B2B</span>
+      <span>·</span>
+      <a href="3D_Z_MODELI/OPIS_MODELI.txt" style="color: var(--orange); text-decoration: underline; text-underline-offset: 3px;">Dokumentacja Modeli 3D</a>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       THREE.JS ARCHITECTURAL STUDIO ENGINE (Light Mode, Shadow Floor, Realistic Emission)
+       ======================================================================== -->
+  <script type="module">
+    import * as THREE from 'three';
+    import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+    import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+    import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+    // Model Paths Registry
+    const MODEL_URLS = {
+      COB: '3D_Z_MODELI/modele/COB.glb',
+      DELUX: '3D_Z_MODELI/modele/DELUX.glb',
+      PREMIUM: '3D_Z_MODELI/modele/PREMIUM.glb',
+      WCOB: '3D_Z_MODELI/modele/WCOB_24V.glb'
+    };
+
+    const SERIES_META = {
+      COB: {
+        title: 'Seria COB 24V Bezpunktowa',
+        chips: '528 CHIPÓW / METR',
+        voltage: '24 V DC STABILIZACJA',
+        pcb: 'PODWÓJNE PCB 3oz MIEDŹ',
+        dens: '528 LED / m',
+        cri: 'Ra > 90',
+        warr: '3 do 5 Lat'
+      },
+      DELUX: {
+        title: 'Seria DELUX 24V Flagship CRI97+',
+        chips: 'SMD 2835 SANAN GOLD',
+        voltage: '24 V DC 3-STEP MACADAM',
+        pcb: '3oz MIEDŹ ELEKTROLITYCZNA',
+        dens: '160 LED / m (High CRI)',
+        cri: 'Ra > 97 (R9 > 90)',
+        warr: '7 Lat Gwarancji'
+      },
+      PREMIUM: {
+        title: 'Seria PREMIUM 24V Inżynieryjna',
+        chips: 'SMD 2835 SELEKCJONOWANE',
+        voltage: '24 V DC / 12 V DC',
+        pcb: 'PODKŁAD 3M 300LSE',
+        dens: '140 / 210 LED / m',
+        cri: 'Ra > 85 / Ra > 90',
+        warr: '5 Lat Gwarancji'
+      },
+      WCOB: {
+        title: 'Seria WCOB Wypukła Osłona',
+        chips: 'COB Z WYPUKŁYM KLOSZEM',
+        voltage: '24 V DC ZABEZPIECZENIE',
+        pcb: 'PODWYŻSZONA DYFUZJA',
+        dens: '480 LED / m',
+        cri: 'Ra > 90',
+        warr: '5 Lat Gwarancji'
+      }
+    };
+
+    // State Store
+    const state = {
+      family: 'COB',
+      isLightOn: true,
+      kelvin: 3000,
+      dimmer: 1.0,
+      activeModel: null,
+      loadedModels: {}
+    };
+
+    // DOM Elements
+    const container = document.getElementById('canvas-host');
+    const toggleLightBtn = document.getElementById('btn-toggle-light');
+    const checkLightPower = document.getElementById('check-light-power');
+    const toolLightIcon = document.getElementById('tool-light-icon');
+    const toolLightText = document.getElementById('tool-light-text');
+    const sliderKelvin = document.getElementById('slider-kelvin');
+    const kelvinReadout = document.getElementById('kelvin-readout');
+    const sliderDimmer = document.getElementById('slider-dimmer');
+    const dimmerReadout = document.getElementById('dimmer-readout');
+    const fpsCounter = document.getElementById('fps-counter');
+
+    // Title & CAD Badges DOM
+    const activeTitleHeading = document.getElementById('active-title-heading');
+    const badgeChips = document.getElementById('badge-chips');
+    const badgeVoltage = document.getElementById('badge-voltage');
+    const badgePcb = document.getElementById('badge-pcb');
+    const specVolt = document.getElementById('spec-volt');
+    const specDens = document.getElementById('spec-dens');
+    const specCri = document.getElementById('spec-cri');
+    const specWarr = document.getElementById('spec-warr');
+
+    // Setup Three.js Scene in KLUŚ Architectural Light Studio Mode
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0xf3f2ee);
+    scene.fog = new THREE.Fog(0xf3f2ee, 0.45, 2.8);
+
+    const camera = new THREE.PerspectiveCamera(34, container.clientWidth / container.clientHeight, 0.01, 20);
+    camera.position.set(0.24, 0.19, 0.32);
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false, powerPreference: 'high-performance' });
+    renderer.setSize(container.clientWidth, container.clientHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.0;
+    container.appendChild(renderer.domElement);
+
+    // Orbit Controls
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.05;
+    controls.minDistance = 0.08;
+    controls.maxDistance = 1.2;
+    controls.target.set(0, 0, 0);
+
+    // Studio Environment & Soft Architectural Lighting
+    const pmrem = new THREE.PMREMGenerator(renderer);
+    scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+    scene.environmentIntensity = 0.75;
+
+    // Daylight Hemisphere Ambient (Crisp white sky, architectural warm ground)
+    const hemiLight = new THREE.HemisphereLight(0xffffff, 0xdeded8, 0.9);
+    scene.add(hemiLight);
+
+    // Key Directional Studio Light (Casts soft directional light on the PCB)
+    const keyLight = new THREE.DirectionalLight(0xfffbf5, 1.4);
+    keyLight.position.set(1.4, 2.8, 1.6);
+    scene.add(keyLight);
+
+    // Fill Directional Light (Soft architectural fill)
+    const fillLight = new THREE.DirectionalLight(0xf2f5f8, 0.6);
+    fillLight.position.set(-1.8, 1.2, -1.2);
+    scene.add(fillLight);
+
+    // Studio Contact Shadow Mesh on Tabletop (Simulates soft architectural shadow on light floor)
+    const shadowGeo = new THREE.PlaneGeometry(0.55, 0.55);
+    const canvasShadow = document.createElement('canvas');
+    canvasShadow.width = 128;
+    canvasShadow.height = 128;
+    const ctx = canvasShadow.getContext('2d');
+    const grad = ctx.createRadialGradient(64, 64, 0, 64, 64, 64);
+    grad.addColorStop(0, 'rgba(36, 56, 62, 0.18)');
+    grad.addColorStop(0.5, 'rgba(36, 56, 62, 0.06)');
+    grad.addColorStop(1, 'rgba(36, 56, 62, 0)');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, 128, 128);
+    const shadowTex = new THREE.CanvasTexture(canvasShadow);
+    const shadowMat = new THREE.MeshBasicMaterial({ map: shadowTex, transparent: true, depthWrite: false });
+    const shadowPlane = new THREE.Mesh(shadowGeo, shadowMat);
+    shadowPlane.rotation.x = -Math.PI / 2;
+    shadowPlane.position.y = -0.015;
+    scene.add(shadowPlane);
+
+    // Dynamic LED Point Light positioned along the tape
+    const ledGlowLight = new THREE.PointLight(0xffb469, 1.8, 1.2);
+    ledGlowLight.position.set(0, 0.04, 0);
+    scene.add(ledGlowLight);
+
+    // Procedural Fallback Mesh (In case network model loads slowly)
+    let fallbackMesh = null;
+    function createProceduralRibbon() {
+      const curve = new THREE.CatmullRomCurve3([
+        new THREE.Vector3(-0.16, -0.01, -0.06),
+        new THREE.Vector3(-0.06, 0.015, 0.05),
+        new THREE.Vector3(0.06, -0.005, 0.06),
+        new THREE.Vector3(0.16, 0.03, -0.03)
+      ]);
+      const geom = new THREE.TubeGeometry(curve, 64, 0.006, 16, false);
+      const mat = new THREE.MeshStandardMaterial({
+        color: 0xffffff,
+        emissive: new THREE.Color(0xffb469),
+        emissiveIntensity: 2.2,
+        roughness: 0.2,
+        metalness: 0.05
+      });
+      fallbackMesh = new THREE.Mesh(geom, mat);
+      scene.add(fallbackMesh);
+    }
+    createProceduralRibbon();
+
+    // Planckian Locus approximation (Kelvin to RGB Color)
+    function kelvinToColor(kelvin) {
+      const temp = kelvin / 100;
+      let r, g, b;
+
+      // Red
+      if (temp <= 66) {
+        r = 255;
+      } else {
+        r = temp - 60;
+        r = 329.698727446 * Math.pow(r, -0.1332047592);
+        if (r < 0) r = 0; if (r > 255) r = 255;
+      }
+
+      // Green
+      if (temp <= 66) {
+        g = temp;
+        g = 99.4708025861 * Math.log(g) - 161.1195681661;
+        if (g < 0) g = 0; if (g > 255) g = 255;
+      } else {
+        g = temp - 60;
+        g = 288.1221695283 * Math.pow(g, -0.0755148492);
+        if (g < 0) g = 0; if (g > 255) g = 255;
+      }
+
+      // Blue
+      if (temp >= 66) {
+        b = 255;
+      } else if (temp <= 19) {
+        b = 0;
+      } else {
+        b = temp - 10;
+        b = 138.5177312231 * Math.log(b) - 305.0447927307;
+        if (b < 0) b = 0; if (b > 255) b = 255;
+      }
+
+      return new THREE.Color(r / 255, g / 255, b / 255);
+    }
+
+    // Update Materials and Emission
+    function updateLighting() {
+      const activeColor = kelvinToColor(state.kelvin);
+      const intensity = state.isLightOn ? 2.4 * state.dimmer : 0.0;
+
+      // Update point light
+      ledGlowLight.color.copy(activeColor);
+      ledGlowLight.intensity = intensity * 1.2;
+
+      // Update fallback mesh if visible
+      if (fallbackMesh) {
+        fallbackMesh.material.emissive.copy(activeColor);
+        fallbackMesh.material.emissiveIntensity = intensity;
+      }
+
+      // Update 3D GLTF Model materials
+      if (state.activeModel) {
+        state.activeModel.traverse(obj => {
+          if (!obj.isMesh) return;
+          const materials = Array.isArray(obj.material) ? obj.material : [obj.material];
+          for (const mat of materials) {
+            if (!mat) continue;
+            const name = (mat.name || '').toLowerCase();
+            const isEmitter = name.includes('phosphor') || 
+                              name.includes('rgb chip') || 
+                              name.includes('luminous') || 
+                              name.includes('led') || 
+                              name.includes('diode');
+
+            if (isEmitter && mat.emissive) {
+              mat.emissive.copy(activeColor);
+              mat.emissiveIntensity = intensity;
+            }
+          }
+        });
+      }
+
+      // Update Lab ambient glow element
+      const labGlow = document.getElementById('lab-ambient-glow');
+      if (labGlow) {
+        if (state.isLightOn) {
+          labGlow.style.background = `radial-gradient(circle at 50% 50%, rgba(${Math.round(activeColor.r*255)}, ${Math.round(activeColor.g*255)}, ${Math.round(activeColor.b*255)}, ${0.35 * state.dimmer}) 0%, transparent 70%)`;
+          labGlow.style.opacity = '1';
+        } else {
+          labGlow.style.opacity = '0';
+        }
+      }
+    }
+
+    // GLTF Model Loader
+    const loader = new GLTFLoader();
+    async function loadModel(family) {
+      if (fallbackMesh) fallbackMesh.visible = false;
+      if (state.activeModel) state.activeModel.visible = false;
+
+      if (!state.loadedModels[family]) {
+        try {
+          const gltf = await loader.loadAsync(MODEL_URLS[family]);
+          state.loadedModels[family] = gltf.scene;
+          scene.add(gltf.scene);
+        } catch (err) {
+          console.warn('Ładowanie modelu fallback:', err);
+          if (fallbackMesh) fallbackMesh.visible = true;
+          return;
+        }
+      }
+
+      state.activeModel = state.loadedModels[family];
+      state.activeModel.visible = true;
+
+      // Center model
+      const box = new THREE.Box3().setFromObject(state.activeModel);
+      const center = box.getCenter(new THREE.Vector3());
+      controls.target.copy(center);
+      controls.target.y -= 0.008;
+      camera.position.copy(center).add(new THREE.Vector3(0.20, 0.17, 0.26));
+      controls.update();
+
+      updateLighting();
+    }
+
+    // Initial Model Load
+    loadModel('COB');
+
+    // UI Event Handlers: Light State Toggle
+    function setLightState(enabled) {
+      state.isLightOn = enabled;
+      checkLightPower.checked = enabled;
+      toggleLightBtn.classList.toggle('active', enabled);
+      toolLightText.textContent = enabled ? 'Światło Wł.' : 'Światło Wył.';
+      toolLightIcon.textContent = enabled ? '⚡' : '🌑';
+      updateLighting();
+    }
+
+    toggleLightBtn.addEventListener('click', () => setLightState(!state.isLightOn));
+    checkLightPower.addEventListener('change', (e) => setLightState(e.target.checked));
+
+    // Kelvin Slider
+    sliderKelvin.addEventListener('input', (e) => {
+      state.kelvin = parseInt(e.target.value, 10);
+      kelvinReadout.textContent = state.kelvin + 'K';
+      updateLighting();
+      updateCalculator();
+    });
+
+    // Dimmer Slider
+    sliderDimmer.addEventListener('input', (e) => {
+      state.dimmer = parseInt(e.target.value, 10) / 100;
+      dimmerReadout.textContent = e.target.value + '%';
+      updateLighting();
+    });
+
+    // Family Buttons
+    document.querySelectorAll('button[data-family]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('button[data-family]').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        state.family = btn.dataset.family;
+
+        const meta = SERIES_META[state.family] || SERIES_META.COB;
+        activeTitleHeading.textContent = meta.title;
+        badgeChips.textContent = meta.chips;
+        badgeVoltage.textContent = meta.voltage;
+        badgePcb.textContent = meta.pcb;
+        specDens.textContent = meta.dens;
+        specCri.textContent = meta.cri;
+        specWarr.textContent = meta.warr;
+
+        loadModel(state.family);
+      });
+    });
+
+    // Camera Presets
+    document.getElementById('cam-iso')?.addEventListener('click', (e) => {
+      setActiveCamBtn(e.target);
+      camera.position.set(0.24, 0.19, 0.32);
+      controls.target.set(0, 0, 0);
+      controls.update();
+    });
+
+    document.getElementById('cam-macro')?.addEventListener('click', (e) => {
+      setActiveCamBtn(e.target);
+      camera.position.set(0.08, 0.05, 0.09);
+      controls.update();
+    });
+
+    document.getElementById('cam-pcb')?.addEventListener('click', (e) => {
+      setActiveCamBtn(e.target);
+      camera.position.set(0.12, 0.04, 0.14);
+      controls.update();
+    });
+
+    document.getElementById('cam-top')?.addEventListener('click', (e) => {
+      setActiveCamBtn(e.target);
+      camera.position.set(0, 0.38, 0.04);
+      controls.update();
+    });
+
+    document.getElementById('btn-reset-cam')?.addEventListener('click', () => {
+      camera.position.set(0.24, 0.19, 0.32);
+      controls.target.set(0, 0, 0);
+      controls.update();
+    });
+
+    function setActiveCamBtn(btn) {
+      document.querySelectorAll('.camera-bar button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    // Resize Handler
+    function onWindowResize() {
+      const w = container.clientWidth;
+      const h = container.clientHeight;
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+      renderer.setSize(w, h, false);
+    }
+    window.addEventListener('resize', onWindowResize);
+
+    // RAF Animation Loop with Tab Visibility Pause (Performance standard)
+    let lastTime = performance.now();
+    let frameCount = 0;
+
+    function animate(now) {
+      requestAnimationFrame(animate);
+
+      if (document.hidden) return;
+
+      controls.update();
+
+      // Subtle slow turntable rotation
+      if (state.activeModel && !controls.state == -1) {
+        state.activeModel.rotation.y += 0.001;
+      }
+      if (fallbackMesh && fallbackMesh.visible) {
+        fallbackMesh.rotation.y += 0.002;
+      }
+
+      renderer.render(scene, camera);
+
+      // FPS Calculation
+      frameCount++;
+      if (now >= lastTime + 1000) {
+        const fps = Math.round((frameCount * 1000) / (now - lastTime));
+        fpsCounter.textContent = fps + ' FPS';
+        frameCount = 0;
+        lastTime = now;
+      }
+    }
+    requestAnimationFrame(animate);
+
+    // ========================================================================
+    // CALCULATOR LOGIC (Laboratorium Doboru)
+    // ========================================================================
+    const inputLength = document.getElementById('input-length');
+    const calcValLength = document.getElementById('calc-val-length');
+    const selectSeries = document.getElementById('select-series');
+    const calcResPower = document.getElementById('calc-res-power');
+    const calcResPsu = document.getElementById('calc-res-psu');
+    const calcResLumens = document.getElementById('calc-res-lumens');
+    const modalConfigSummary = document.getElementById('modal-config-summary');
+
+    const seriesData = {
+      'COB-10W': { w_per_m: 10, lm_per_m: 1000, name: 'COB 10W/m' },
+      'COB-15W': { w_per_m: 15, lm_per_m: 1550, name: 'COB 15W/m' },
+      'DELUX-16W': { w_per_m: 16, lm_per_m: 1750, name: 'DELUX CRI97 16W/m' },
+      'PREMIUM-9.6W': { w_per_m: 9.6, lm_per_m: 960, name: 'PREMIUM 9.6W/m' }
+    };
+
+    function updateCalculator() {
+      const length = parseFloat(inputLength.value);
+      calcValLength.textContent = length.toFixed(1) + ' m';
+      const sel = seriesData[selectSeries.value] || seriesData['COB-15W'];
+
+      const totalPower = length * sel.w_per_m;
+      const psuWithMargin = Math.ceil((totalPower * 1.2) / 5) * 5;
+      const totalLumens = Math.round(length * sel.lm_per_m);
+
+      calcResPower.textContent = totalPower.toFixed(1) + ' W';
+      calcResPsu.textContent = psuWithMargin + ' W';
+      calcResLumens.textContent = totalLumens.toLocaleString('pl-PL') + ' lm';
+
+      if (modalConfigSummary) {
+        modalConfigSummary.textContent = `Seria: ${sel.name} | Barwa: ${state.kelvin}K | Długość: ${length}m | Zasilacz Prescot 24V: ${psuWithMargin}W`;
+      }
+    }
+
+    inputLength.addEventListener('input', updateCalculator);
+    selectSeries.addEventListener('change', updateCalculator);
+    updateCalculator();
+
+    // Story Card Focus Interaction
+    document.querySelectorAll('.story-card').forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        const focus = card.dataset.focus;
+        if (focus === 'cob') {
+          loadModel('COB');
+          camera.position.set(0.12, 0.08, 0.16);
+        } else if (focus === 'delux') {
+          loadModel('DELUX');
+          camera.position.set(-0.16, 0.12, 0.22);
+        } else if (focus === 'pcb') {
+          camera.position.set(0.07, 0.05, 0.09);
+        } else if (focus === 'onecut') {
+          camera.position.set(0.09, 0.06, 0.12);
+        }
+        controls.update();
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,1834 @@
+<!doctype html>
+<html lang="pl" class="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PRESCOT 3D — Przyszłość Światła Liniowego | Taśmy LED COB, DELUX CRI97 & PREMIUM</title>
+  <meta name="description" content="Interaktywny scrollytelling i wizualizacja 3D taśm LED Prescot nowej generacji. Jednolita linia światła COB, CRI Ra > 97, podwójne PCB 3oz i 7 lat gwarancji.">
+  <link rel="icon" href="assets/prescot-logo.svg" type="image/svg+xml">
+
+  <!-- Google Fonts: Outfit & Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       MODERN WEB GUIDANCE: DESIGN TOKENS & NATIVE RESET
+       ========================================================================== */
+    :root {
+      --bg-dark: #05070b;
+      --bg-surface: rgba(13, 17, 26, 0.72);
+      --bg-surface-elevated: rgba(22, 28, 42, 0.85);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-accent: rgba(255, 107, 0, 0.35);
+      --accent: #ff6b00;
+      --accent-glow: rgba(255, 107, 0, 0.5);
+      --accent-soft: rgba(255, 107, 0, 0.12);
+      --light-warm: #ffb469;
+      --light-neutral: #fff2e0;
+      --light-cold: #b8d7ff;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --font-display: 'Outfit', -apple-system, sans-serif;
+      --font-body: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 24px;
+      --radius-full: 9999px;
+      interpolate-size: allow-keywords;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      color-scheme: dark;
+    }
+
+    body {
+      overflow-x: hidden;
+      line-height: 1.5;
+      background: radial-gradient(circle at 50% 0%, rgba(255, 107, 0, 0.08) 0%, transparent 50%),
+                  radial-gradient(circle at 100% 50%, rgba(96, 165, 250, 0.04) 0%, transparent 40%),
+                  var(--bg-dark);
+    }
+
+    /* ==========================================================================
+       TOP NAVIGATION BAR (Liquid Glass)
+       ========================================================================== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 36px;
+      background: rgba(5, 7, 11, 0.68);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border-subtle);
+      transition: background 0.3s ease, border-color 0.3s ease;
+    }
+
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-decoration: none;
+    }
+
+    .brand-logo {
+      height: 30px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .brand-badge {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      background: rgba(255, 107, 0, 0.12);
+      border: 1px solid rgba(255, 107, 0, 0.28);
+      border-radius: var(--radius-full);
+      color: #ff9142;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 500;
+      transition: color 0.2s ease;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-main);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-glow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: var(--radius-full);
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 0 20px rgba(255, 107, 0, 0.35);
+      transition: all 0.25s var(--ease-cinematic);
+    }
+
+    .btn-glow:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 28px rgba(255, 107, 0, 0.55);
+      background: #ff7d1f;
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-main);
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 10px 18px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-subtle);
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* ==========================================================================
+       HERO & STICKY 3D STAGE
+       ========================================================================== */
+    .hero-section {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 130px 48px 60px;
+      overflow: hidden;
+    }
+
+    /* 3D WebGL Canvas Layer */
+    #canvas-container {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: auto;
+      cursor: grab;
+    }
+
+    #canvas-container:active {
+      cursor: grabbing;
+    }
+
+    #canvas-container canvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Hero Foreground Content */
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      max-width: 640px;
+      pointer-events: none;
+    }
+
+    .hero-content * {
+      pointer-events: auto;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: rgba(255, 107, 0, 0.1);
+      border: 1px solid rgba(255, 107, 0, 0.28);
+      border-radius: var(--radius-full);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      color: #ff9142;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 22px;
+      backdrop-filter: blur(8px);
+    }
+
+    .pulse-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #ff6b00;
+      box-shadow: 0 0 10px #ff6b00;
+      animation: pulseGlow 1.8s infinite ease-in-out;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.4; transform: scale(0.85); }
+      50% { opacity: 1; transform: scale(1.25); }
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(42px, 5.5vw, 76px);
+      font-weight: 800;
+      line-height: 1.04;
+      letter-spacing: -0.035em;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #ffffff 30%, #c4d0e2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-title em {
+      font-style: normal;
+      background: linear-gradient(135deg, #ff9142 0%, #ff5500 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+
+    .hero-lead {
+      font-size: 17px;
+      line-height: 1.62;
+      color: var(--text-muted);
+      margin-bottom: 34px;
+      max-width: 520px;
+    }
+
+    .hero-specs-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 34px;
+    }
+
+    .spec-chip {
+      display: flex;
+      flex-direction: column;
+      padding: 10px 16px;
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+    }
+
+    .spec-chip .value {
+      font-family: var(--font-mono);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .spec-chip .label {
+      font-size: 10.5px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 2px;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* Floating Interactive 3D HUD Controller (Right Side) */
+    .hud-controller {
+      position: absolute;
+      top: 130px;
+      right: 48px;
+      z-index: 10;
+      width: 320px;
+      background: rgba(13, 17, 26, 0.72);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+      transition: border-color 0.3s ease;
+    }
+
+    .hud-controller:hover {
+      border-color: rgba(255, 107, 0, 0.3);
+    }
+
+    .hud-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .hud-title {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+    }
+
+    .hud-state-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: var(--radius-full);
+      font-size: 11.5px;
+      font-weight: 600;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.05);
+      color: #fff;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .hud-state-btn.active {
+      background: #ff6b00;
+      border-color: #ff6b00;
+      box-shadow: 0 0 16px rgba(255, 107, 0, 0.5);
+    }
+
+    .hud-group {
+      margin-bottom: 16px;
+    }
+
+    .hud-group-label {
+      font-size: 11px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .hud-pill-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px;
+    }
+
+    .hud-pill-btn {
+      padding: 8px 10px;
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      font-family: var(--font-display);
+      font-size: 12px;
+      font-weight: 500;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .hud-pill-btn:hover {
+      background: rgba(255, 255, 255, 0.07);
+      color: var(--text-main);
+    }
+
+    .hud-pill-btn.active {
+      background: rgba(255, 107, 0, 0.15);
+      border-color: var(--accent);
+      color: #ff9d54;
+      font-weight: 600;
+    }
+
+    /* Kelvin Live Slider */
+    .slider-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .kelvin-slider {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 8px;
+      border-radius: 4px;
+      outline: none;
+      background: linear-gradient(90deg, #ff9e42 0%, #ffc58a 30%, #fff4e6 55%, #c8dcff 100%);
+      cursor: pointer;
+    }
+
+    .kelvin-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #ffffff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5), 0 0 0 2px var(--accent);
+      cursor: pointer;
+    }
+
+    .hud-footnote {
+      font-size: 11px;
+      color: var(--text-dim);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    /* ==========================================================================
+       SCROLLYTELLING JOURNEY ("No-Reading" Storytelling)
+       ========================================================================== */
+    .story-section {
+      position: relative;
+      padding: 120px 48px;
+      z-index: 10;
+    }
+
+    .story-container {
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+
+    .section-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 4vw, 54px);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+
+    .section-desc {
+      font-size: 17px;
+      color: var(--text-muted);
+      max-width: 640px;
+      line-height: 1.6;
+      margin-bottom: 60px;
+    }
+
+    .story-beats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .story-card {
+      position: relative;
+      background: var(--bg-surface);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      transition: all 0.35s var(--ease-cinematic);
+    }
+
+    .story-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(255, 107, 0, 0.4), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .story-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 107, 0, 0.3);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .story-card:hover::before {
+      opacity: 1;
+    }
+
+    .story-card .number {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 18px;
+      display: block;
+    }
+
+    .story-card h3 {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 12px;
+      color: var(--text-main);
+    }
+
+    .story-card p {
+      font-size: 14.5px;
+      line-height: 1.6;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .story-card .card-media {
+      width: 100%;
+      height: 180px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: #090c12;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      position: relative;
+    }
+
+    .story-card .card-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .story-card:hover .card-media img {
+      transform: scale(1.06);
+    }
+
+    /* ==========================================================================
+       LIGHT LAB & REAL-TIME EMISSION CALCULATOR
+       ========================================================================== */
+    .lab-section {
+      position: relative;
+      padding: 100px 48px;
+      background: radial-gradient(circle at 50% 50%, rgba(255, 107, 0, 0.05) 0%, transparent 60%);
+      z-index: 10;
+    }
+
+    .lab-container {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .lab-preview-box {
+      position: relative;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      overflow: hidden;
+      aspect-ratio: 16 / 10;
+      background: #080a10;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lab-preview-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: filter 0.3s ease;
+    }
+
+    .lab-glow-overlay {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      mix-blend-mode: screen;
+      opacity: 0.6;
+      transition: background 0.3s ease, opacity 0.3s ease;
+    }
+
+    .lab-controls-card {
+      background: var(--bg-surface);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+    }
+
+    .calc-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .calc-stat {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .calc-stat .num {
+      font-family: var(--font-mono);
+      font-size: 20px;
+      font-weight: 700;
+      color: #ff9142;
+    }
+
+    .calc-stat .sub {
+      font-size: 11px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    /* ==========================================================================
+       TECHNICAL SERIES CATALOG & 3D ASSETS DOWNLOAD
+       ========================================================================== */
+    .catalog-section {
+      position: relative;
+      padding: 120px 48px;
+      z-index: 10;
+    }
+
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .product-3d-card {
+      background: var(--bg-surface);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s var(--ease-cinematic);
+    }
+
+    .product-3d-card:hover {
+      border-color: rgba(255, 107, 0, 0.4);
+      transform: translateY(-5px);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+    }
+
+    .product-card-hero {
+      position: relative;
+      height: 240px;
+      background: #090c12;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .product-card-hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .product-3d-card:hover .product-card-hero img {
+      transform: scale(1.05);
+    }
+
+    .product-badge-float {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(8px);
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #fff;
+    }
+
+    .product-card-body {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+
+    .product-card-title {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .product-card-sku {
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .product-spec-table {
+      width: 100%;
+      margin-bottom: 24px;
+      font-size: 13px;
+      border-collapse: collapse;
+    }
+
+    .product-spec-table tr {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .product-spec-table td {
+      padding: 8px 0;
+      color: var(--text-muted);
+    }
+
+    .product-spec-table td:last-child {
+      text-align: right;
+      color: var(--text-main);
+      font-weight: 600;
+      font-family: var(--font-mono);
+    }
+
+    .card-downloads {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .btn-file-dl {
+      flex: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 9px 12px;
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-file-dl:hover {
+      background: rgba(255, 107, 0, 0.12);
+      border-color: var(--accent);
+      color: #ff9142;
+    }
+
+    /* ==========================================================================
+       NATIVE MODAL / DIALOG (Modern Web Guidance with @starting-style)
+       ========================================================================== */
+    dialog.prescot-modal {
+      position: fixed;
+      inset: 0;
+      margin: auto;
+      max-width: 680px;
+      width: 90%;
+      background: rgba(10, 14, 22, 0.95);
+      backdrop-filter: blur(32px);
+      -webkit-backdrop-filter: blur(32px);
+      border: 1px solid var(--border-accent);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      color: var(--text-main);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), 0 0 40px rgba(255, 107, 0, 0.2);
+      opacity: 0;
+      transform: scale(0.95) translateY(20px);
+      transition: opacity 0.3s ease, transform 0.3s var(--ease-cinematic), display 0.3s allow-discrete, overlay 0.3s allow-discrete;
+    }
+
+    dialog.prescot-modal[open] {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+
+    @starting-style {
+      dialog.prescot-modal[open] {
+        opacity: 0;
+        transform: scale(0.95) translateY(20px);
+      }
+    }
+
+    dialog.prescot-modal::backdrop {
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      opacity: 0;
+      transition: opacity 0.3s ease, display 0.3s allow-discrete, overlay 0.3s allow-discrete;
+    }
+
+    dialog.prescot-modal[open]::backdrop {
+      opacity: 1;
+    }
+
+    @starting-style {
+      dialog.prescot-modal[open]::backdrop {
+        opacity: 0;
+      }
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+
+    .modal-close-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 24px;
+      line-height: 1;
+      padding: 4px;
+      transition: color 0.2s ease;
+    }
+
+    .modal-close-btn:hover {
+      color: #fff;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 12.5px;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .form-input, .form-select {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      color: #fff;
+      font-family: inherit;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .form-input:focus, .form-select:focus {
+      border-color: var(--accent);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .form-input:user-invalid {
+      border-color: #ef4444;
+    }
+
+    /* Footer */
+    footer.site-footer {
+      position: relative;
+      z-index: 10;
+      border-top: 1px solid var(--border-subtle);
+      padding: 60px 48px;
+      background: rgba(3, 4, 7, 0.95);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-left {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-copy {
+      font-size: 13px;
+      color: var(--text-dim);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .hero-section {
+        padding: 110px 24px 60px;
+      }
+      .hud-controller {
+        position: relative;
+        top: auto;
+        right: auto;
+        width: 100%;
+        margin-top: 40px;
+      }
+      .lab-container, .catalog-grid {
+        grid-template-columns: 1fr;
+      }
+      .navbar {
+        padding: 14px 20px;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+
+  <!-- Import map for native ES Modules (Local Three.js) -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "./vendor/three/build/three.module.js",
+      "three/addons/": "./vendor/three/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ========================================================================
+       TOP NAVIGATION BAR
+       ======================================================================== -->
+  <header class="navbar">
+    <a href="#" class="brand-wrap">
+      <img src="assets/prescot-logo-white.svg" alt="PRESCOT LED" class="brand-logo">
+      <span class="brand-badge">3D Architecture</span>
+    </a>
+
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#hero">Doświadczenie 3D</a></li>
+        <li><a href="#scrollytelling">Historia Światła</a></li>
+        <li><a href="#lab">Laboratorium Barwy</a></li>
+        <li><a href="#katalog">Kolekcja 2026</a></li>
+        <li><a href="#kontakt">Współpraca B2B</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="btn-ghost" onclick="document.querySelector('#b2b-dialog').showModal()">
+        <span>Wyceń Inwestycję</span>
+      </button>
+      <a href="#katalog" class="btn-glow">
+        <span>Katalog 3D .GLB</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       HERO STAGE (Interactive Three.js Canvas + HUD Controller)
+       ======================================================================== -->
+  <section id="hero" class="hero-section">
+    <!-- WebGL Canvas Mount Container -->
+    <div id="canvas-container" title="Przeciągnij myszką, aby obrócić taśmę 3D"></div>
+
+    <!-- Hero Content Overlay -->
+    <div class="hero-content">
+      <div class="hero-pill">
+        <span class="pulse-dot"></span>
+        <span>Autorska Inżynieria LED 2026</span>
+      </div>
+
+      <h1 class="hero-title">
+        ŚWIATŁO W FORMIE <em>DOSKONAŁEJ.</em>
+      </h1>
+
+      <p class="hero-lead">
+        Jednolita linia światła COB bez efektu kropek, wierność kolorów na poziomie <strong>CRI Ra &gt; 97</strong> oraz podwójne miedziowanie 3oz PCB. Doświadcz architektury światła Prescot w trójwymiarze.
+      </p>
+
+      <div class="hero-specs-row">
+        <div class="spec-chip">
+          <span class="value" id="disp-led-density">528 LED/m</span>
+          <span class="label">Gęstość Liniowa</span>
+        </div>
+        <div class="spec-chip">
+          <span class="value" id="disp-cri">Ra &gt; 97</span>
+          <span class="label">Wierność Barwy</span>
+        </div>
+        <div class="spec-chip">
+          <span class="value" id="disp-voltage">24 V DC</span>
+          <span class="label">Stabilizacja</span>
+        </div>
+        <div class="spec-chip">
+          <span class="value" id="disp-warranty">7 Lat</span>
+          <span class="label">Gwarancja B2B</span>
+        </div>
+      </div>
+
+      <div class="hero-cta-group">
+        <a href="#scrollytelling" class="btn-glow">
+          <span>Poznaj Różnicę COB ↓</span>
+        </a>
+        <button class="btn-ghost" id="btn-camera-reset">
+          <span>Zresetuj Kamerę 3D</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Floating Interactive 3D HUD Controller -->
+    <aside class="hud-controller" aria-label="Sterownik 3D">
+      <div class="hud-header">
+        <span class="hud-title">Centrum Sterowania 3D</span>
+        <button class="hud-state-btn active" id="hud-toggle-light" aria-label="Włącz / wyłącz światło">
+          <span id="light-icon">⚡</span>
+          <span id="light-label">ZAPALONE</span>
+        </button>
+      </div>
+
+      <!-- Wybór Rodziny Taśmy -->
+      <div class="hud-group">
+        <div class="hud-group-label">
+          <span>Model Taśmy</span>
+          <span id="active-model-name">COB Bezpunktowa</span>
+        </div>
+        <div class="hud-pill-grid">
+          <button class="hud-pill-btn active" data-family="COB">COB 528</button>
+          <button class="hud-pill-btn" data-family="DELUX">DELUX 97+</button>
+          <button class="hud-pill-btn" data-family="PREMIUM">PREMIUM 24V</button>
+          <button class="hud-pill-btn" data-family="WCOB">WCOB Wypukła</button>
+        </div>
+      </div>
+
+      <!-- Temperatura Barwowa Kelwiny -->
+      <div class="hud-group">
+        <div class="hud-group-label">
+          <span>Temperatura Barwy</span>
+          <span id="kelvin-display" style="font-family: var(--font-mono); color: #ff9142; font-weight: 600;">3000K</span>
+        </div>
+        <div class="slider-wrap">
+          <input type="range" id="kelvin-slider" class="kelvin-slider" min="2400" max="6500" step="50" value="3000" aria-label="Temperatura barwowa w Kelwinach">
+        </div>
+      </div>
+
+      <!-- Jasność / Dimmer -->
+      <div class="hud-group">
+        <div class="hud-group-label">
+          <span>Jasność Emisji</span>
+          <span id="dimmer-display" style="font-family: var(--font-mono); color: #fff;">100%</span>
+        </div>
+        <div class="slider-wrap">
+          <input type="range" id="dimmer-slider" class="kelvin-slider" min="0" max="100" step="1" value="100" style="background: linear-gradient(90deg, #222, #fff);" aria-label="Ściemniacz LED">
+        </div>
+      </div>
+
+      <!-- Kąty Kamery -->
+      <div class="hud-group" style="margin-bottom: 0;">
+        <div class="hud-group-label">
+          <span>Ujęcia Kamery 3D</span>
+        </div>
+        <div class="hud-pill-grid">
+          <button class="hud-pill-btn" id="cam-preset-iso">Izometryczny</button>
+          <button class="hud-pill-btn" id="cam-preset-top">Profil Góra</button>
+          <button class="hud-pill-btn" id="cam-preset-macro">Makro Dioda</button>
+          <button class="hud-pill-btn" id="cam-preset-arc">Pętla Łuku</button>
+        </div>
+      </div>
+
+      <div class="hud-footnote">
+        <span>Obrót: Lewy przycisk myszy</span>
+        <span id="fps-badge" style="font-family: var(--font-mono); color: #22c55e;">60 FPS</span>
+      </div>
+    </aside>
+  </section>
+
+  <!-- ========================================================================
+       SCROLLYTELLING JOURNEY (Viktor Oddy / MotionSites Method)
+       ======================================================================== -->
+  <section id="scrollytelling" class="story-section">
+    <div class="story-container">
+      <div class="section-eyebrow">Architektura &amp; Fizyka Światła</div>
+      <h2 class="section-title">Dlaczego Profesjonaliści Wybierają Prescot?</h2>
+      <p class="section-desc">
+        W erze nowoczesnej architektury wnętrz taśma LED nie może być przypadkowym produktem. Każdy milimetr naszych taśm został zaprojektowany z myślą o trwałości, idealnej optyce i braku konieczności poprawek serwisowych.
+      </p>
+
+      <div class="story-beats-grid">
+        <!-- Beat 1: COB Continuous Line -->
+        <article class="story-card" data-camera-focus="cob">
+          <div>
+            <span class="number">01 / TECHNOLOGIA COB</span>
+            <h3>Ciągła Linia Bez Efektu Kropek</h3>
+            <p>
+              528 mikrodiod na metr zamkniętych pod jednolitą warstwą elastycznego luminoforu. Nawet w najpłytszym profilu meblowym uzyskujesz nieskazitelną, gładką taflę światła bez konieczności stosowania mlecznych kloszy pochłaniających lumeny.
+            </p>
+          </div>
+          <div class="card-media">
+            <img src="3D_Z_MODELI/rendery/COB_ZAPALONE.png" alt="Taśma LED COB zapalona" loading="lazy">
+          </div>
+        </article>
+
+        <!-- Beat 2: CRI > 97 -->
+        <article class="story-card" data-camera-focus="delux">
+          <div>
+            <span class="number">02 / REFERENCYJNE CRI</span>
+            <h3>Wskaźnik CRI Ra &gt; 97 (Seria DELUX)</h3>
+            <p>
+              Standardowe taśmy (CRI 80) sprawiają, że naturalne drewno, tkaniny i marmur tracą głębię i szarzeją. Prescot DELUX emituje pełne widmo światła słonecznego z parametrem R9 &gt; 90, wiernie oddając każdy detal projektu.
+            </p>
+          </div>
+          <div class="card-media">
+            <img src="3D_Z_MODELI/rendery/DELUX_ZAPALONE.png" alt="Taśma LED DELUX CRI97" loading="lazy">
+          </div>
+        </article>
+
+        <!-- Beat 3: 3oz Copper Substrate -->
+        <article class="story-card" data-camera-focus="pcb">
+          <div>
+            <span class="number">03 / INŻYNIERIA PCB</span>
+            <h3>Gruba Miedź 3oz &amp; Brak Spadków</h3>
+            <p>
+              Podwójny podkład miedzi elektrolitycznej o masie 3 uncji (3oz). Gwarantuje idealne odprowadzanie ciepła do profilu aluminiowego i zerowy spadek jasności nawet na 10-metrowych liniach zasilanych jednostronnie.
+            </p>
+          </div>
+          <div class="card-media">
+            <img src="3D_Z_MODELI/rendery/DETAL_PREMIUM210_OPORNIKI.png" alt="Oporniki i miedź PCB" loading="lazy">
+          </div>
+        </article>
+
+        <!-- Beat 4: One-Cut Precision -->
+        <article class="story-card" data-camera-focus="onecut">
+          <div>
+            <span class="number">04 / PRECYZJA MONTAŻU</span>
+            <h3>Sekcje Cięcia One-Cut co 25 mm</h3>
+            <p>
+              Zapomnij o docinaniu z dokładnością do 10 cm. Taśmy Prescot posiadają zagęszczone pola lutownicze ze specjalną cynowaną powłoką, ułatwiającą szybkie i pewne lutowanie w ciasnych zakamarkach architektonicznych.
+            </p>
+          </div>
+          <div class="card-media">
+            <img src="3D_Z_MODELI/rendery/DETAL_PREMIUM140.png" alt="Pola lutownicze One Cut" loading="lazy">
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       LIGHT LAB & CALCULATOR (Interaktywne Laboratorium)
+       ======================================================================== -->
+  <section id="lab" class="lab-section">
+    <div class="lab-container">
+      <div class="lab-preview-box">
+        <img id="lab-render-target" src="3D_Z_MODELI/rendery/COB_ZAPALONE.png" alt="Symulacja światła w laboratorium">
+        <div class="lab-glow-overlay" id="lab-glow"></div>
+      </div>
+
+      <div class="lab-controls-card">
+        <div class="section-eyebrow">Laboratorium Optyki &amp; Doboru</div>
+        <h2 style="font-family: var(--font-display); font-size: 32px; font-weight: 700; margin-bottom: 14px;">
+          Inteligentny Dobór Instalacji
+        </h2>
+        <p style="font-size: 14.5px; color: var(--text-muted); margin-bottom: 24px;">
+          Wprowadź parametry swojego projektu — algorytm automatycznie dobierze rekomendowaną taśmę, wyliczy strumień świetlny oraz bezpieczną moc zasilacza 24V.
+        </p>
+
+        <!-- Długość instalacji -->
+        <div class="form-group">
+          <label class="form-label" for="calc-length">Długość projektowanej linii (metry): <strong id="val-length" style="color: var(--accent);">5.0 m</strong></label>
+          <input type="range" id="calc-length" class="kelvin-slider" min="1" max="25" step="0.5" value="5" style="background: linear-gradient(90deg, #ff6b00, #ff9142);">
+        </div>
+
+        <!-- Seria taśmy -->
+        <div class="form-group">
+          <label class="form-label" for="calc-series">Rekomendowana seria taśmy:</label>
+          <select id="calc-series" class="form-select">
+            <option value="COB-10W">COB Bezpunktowa — 10 W/m (1000 lm/m) · Akcentowa</option>
+            <option value="COB-15W" selected>COB Bezpunktowa — 15 W/m (1550 lm/m) · Główne światło</option>
+            <option value="DELUX-16W">DELUX CRI97 — 16 W/m (1750 lm/m) · Najwyższa jakość</option>
+            <option value="PREMIUM-9.6W">PREMIUM SMD — 9.6 W/m (960 lm/m) · Uniwersalna</option>
+          </select>
+        </div>
+
+        <!-- Wyniki Kalkulatora -->
+        <div class="calc-row">
+          <div class="calc-stat">
+            <span class="num" id="res-power">75.0 W</span>
+            <span class="sub">Moc czynna taśmy</span>
+          </div>
+          <div class="calc-stat">
+            <span class="num" id="res-psu">90 W</span>
+            <span class="sub">Zasilacz (+20% zapas)</span>
+          </div>
+          <div class="calc-stat">
+            <span class="num" id="res-lumens">7 750 lm</span>
+            <span class="sub">Całkowity strumień</span>
+          </div>
+        </div>
+
+        <button class="btn-glow" style="width: 100%; justify-content: center; margin-top: 26px;" onclick="document.querySelector('#b2b-dialog').showModal()">
+          <span>Wygeneruj Zestawienie dla Inwestora</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       TECHNICAL SERIES CATALOG & 3D ASSETS DOWNLOAD
+       ======================================================================== -->
+  <section id="katalog" class="catalog-section">
+    <div class="story-container">
+      <div class="section-eyebrow">Portfolio Inżynieryjne 2026</div>
+      <h2 class="section-title">Trzy Flagowe Rodziny Taśm LED Prescot</h2>
+      <p class="section-desc">
+        Pobierz oficjalne pliki CAD 3D (.GLB), sceny Blender (.BLEND) oraz karty techniczne wygenerowane bezpośrednio z fabrycznych modeli produkcyjnych.
+      </p>
+
+      <div class="catalog-grid">
+        <!-- Karta 1: COB -->
+        <div class="product-3d-card">
+          <div class="product-card-hero">
+            <span class="product-badge-float">Bezpunktowa · 528 LED</span>
+            <img src="3D_Z_MODELI/rendery/COB_MIESZANE.png" alt="Taśma LED COB" loading="lazy">
+          </div>
+          <div class="product-card-body">
+            <div>
+              <h3 class="product-card-title">Seria COB 24V</h3>
+              <div class="product-card-sku">SKU: TAŚ000222 / EC252 · Gwarancja 3 Lata</div>
+              <table class="product-spec-table">
+                <tr><td>Napięcie robocze</td><td>24 V DC</td></tr>
+                <tr><td>Gęstość</td><td>528 chipów/m</td></tr>
+                <tr><td>Moc znamionowa</td><td>10 W/m &ndash; 15 W/m</td></tr>
+                <tr><td>Kąt świecenia</td><td>180&deg; (półsfera)</td></tr>
+                <tr><td>Stopień ochrony</td><td>IP20 / IP67 Tuba</td></tr>
+              </table>
+            </div>
+            <div class="card-downloads">
+              <a href="3D_Z_MODELI/modele/COB.glb" download class="btn-file-dl">Model .GLB</a>
+              <a href="3D_Z_MODELI/modele/COB_EDYTOWALNE.blend" download class="btn-file-dl">Blender .BLEND</a>
+              <a href="3D_Z_MODELI/rendery/COB_ZAPALONE.png" download class="btn-file-dl">Render 4K</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Karta 2: DELUX -->
+        <div class="product-3d-card">
+          <div class="product-card-hero">
+            <span class="product-badge-float" style="background: rgba(255,107,0,0.8);">CRI Ra &gt; 97 · Flagship</span>
+            <img src="3D_Z_MODELI/rendery/DELUX_MIESZANE.png" alt="Taśma LED DELUX" loading="lazy">
+          </div>
+          <div class="product-card-body">
+            <div>
+              <h3 class="product-card-title">Seria DELUX 24V</h3>
+              <div class="product-card-sku">SKU: 24D002-050-10-NW · Gwarancja 7 Lat</div>
+              <table class="product-spec-table">
+                <tr><td>Napięcie robocze</td><td>24 V DC</td></tr>
+                <tr><td>Wierność barw</td><td>CRI Ra &gt; 97 (R9 &gt; 90)</td></tr>
+                <tr><td>Diody</td><td>SMD 2835 Sanan Gold</td></tr>
+                <tr><td>Selekcja barwy</td><td>3-Step MacAdam</td></tr>
+                <tr><td>Podkład PCB</td><td>3oz Podwójna Miedź</td></tr>
+              </table>
+            </div>
+            <div class="card-downloads">
+              <a href="3D_Z_MODELI/modele/DELUX.glb" download class="btn-file-dl">Model .GLB</a>
+              <a href="3D_Z_MODELI/modele/DELUX_EDYTOWALNE.blend" download class="btn-file-dl">Blender .BLEND</a>
+              <a href="3D_Z_MODELI/rendery/DELUX_ZAPALONE.png" download class="btn-file-dl">Render 4K</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Karta 3: PREMIUM -->
+        <div class="product-3d-card">
+          <div class="product-card-hero">
+            <span class="product-badge-float">Niezawodność · Slim / RGBW</span>
+            <img src="3D_Z_MODELI/rendery/PREMIUM_MIESZANE.png" alt="Taśma LED PREMIUM" loading="lazy">
+          </div>
+          <div class="product-card-body">
+            <div>
+              <h3 class="product-card-title">Seria PREMIUM 24V</h3>
+              <div class="product-card-sku">SKU: 24E009-050-8 · Gwarancja 5 Lat</div>
+              <table class="product-spec-table">
+                <tr><td>Napięcie robocze</td><td>12V / 24V DC</td></tr>
+                <tr><td>Opcje gęstości</td><td>70 / 140 / 210 LED/m</td></tr>
+                <tr><td>Dostępne warianty</td><td>Slim 4mm, RGBW 5-pin</td></tr>
+                <tr><td>Żywotność L80B10</td><td>&gt; 54 000 godzin</td></tr>
+                <tr><td>Klej montażowy</td><td>3M 300LSE termoprzewodzący</td></tr>
+              </table>
+            </div>
+            <div class="card-downloads">
+              <a href="3D_Z_MODELI/modele/PREMIUM.glb" download class="btn-file-dl">Model .GLB</a>
+              <a href="3D_Z_MODELI/modele/PREMIUM_EDYTOWALNE.blend" download class="btn-file-dl">Blender .BLEND</a>
+              <a href="3D_Z_MODELI/rendery/PREMIUM_ZAPALONE.png" download class="btn-file-dl">Render 4K</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       NATIVE MODAL / DIALOG: B2B QUICK QUOTE (Modern Web Guidance)
+       ======================================================================== -->
+  <dialog id="b2b-dialog" class="prescot-modal">
+    <div class="modal-header">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <img src="assets/prescot-logo-white.svg" alt="Prescot" style="height: 24px;">
+        <h3 style="font-family: var(--font-display); font-size: 20px; font-weight: 700;">Wycena Inwestycyjna B2B</h3>
+      </div>
+      <button class="modal-close-btn" onclick="document.querySelector('#b2b-dialog').close()" aria-label="Zamknij">&times;</button>
+    </div>
+
+    <form method="dialog" id="quote-form" onsubmit="event.preventDefault(); alert('Dziękujemy! Twoje zapytanie z konfiguracji 3D zostało zarejestrowane w Prescot B2B.'); document.querySelector('#b2b-dialog').close();">
+      <div class="form-group">
+        <label class="form-label" for="client-name">Imię i nazwisko / Nazwa firmy</label>
+        <input type="text" id="client-name" class="form-input" placeholder="np. Studio Architektury Jan Kowalski" required>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="client-email">Adres e-mail do oferty handlowej</label>
+        <input type="email" id="client-email" class="form-input" placeholder="biuro@twojafirma.pl" required>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="client-nip">NIP firmy (do cen hurtowych WAPRO)</label>
+        <input type="text" id="client-nip" class="form-input" placeholder="np. 8451992744">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Skonfigurowana taśma 3D</label>
+        <div style="padding: 12px; background: rgba(255,255,255,0.04); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 12.5px; color: #ff9142;" id="modal-summary-text">
+          Seria: COB 24V | Barwa: 3000K | Długość: 5.0m | Zasilacz: 90W 24V
+        </div>
+      </div>
+
+      <button type="submit" class="btn-glow" style="width: 100%; justify-content: center; padding: 14px; font-size: 14px; margin-top: 10px;">
+        Prześlij Zapytanie do Działu Handlowego
+      </button>
+    </form>
+  </dialog>
+
+  <!-- ========================================================================
+       FOOTER
+       ======================================================================== -->
+  <footer id="kontakt" class="site-footer">
+    <div class="footer-left">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <img src="assets/prescot-logo-white.svg" alt="PRESCOT LED" style="height: 22px;">
+        <span style="font-size: 12px; color: var(--text-dim);">Sp. z o.o. · Giżycko</span>
+      </div>
+      <p class="footer-copy">
+        Oficjalny hub inżynieryjny 3D dla taśm LED Prescot. Modele odtworzone 1:1 ze specyfikacji fabrycznej i bazy katalogowej 2026.
+      </p>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 20px; font-size: 13px; color: var(--text-muted);">
+      <span>E-mail: <strong>biuro@prescot.pl</strong></span>
+      <span>|</span>
+      <span>NIP: <strong>8451992744</strong></span>
+      <span>|</span>
+      <a href="3D_Z_MODELI/OPIS_MODELI.txt" style="color: var(--accent); text-decoration: none;">Opis Dokładności Modeli</a>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       THREE.JS 3D SCENE & INTERACTIVE CONTROLLER SCRIPT (ES Modules)
+       ======================================================================== -->
+  <script type="module">
+    import * as THREE from 'three';
+    import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+    import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+    import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+    // Model Paths Registry
+    const MODEL_URLS = {
+      COB: '3D_Z_MODELI/modele/COB.glb',
+      DELUX: '3D_Z_MODELI/modele/DELUX.glb',
+      PREMIUM: '3D_Z_MODELI/modele/PREMIUM.glb',
+      WCOB: '3D_Z_MODELI/modele/WCOB_24V.glb'
+    };
+
+    // State Store
+    const state = {
+      family: 'COB',
+      isLightOn: true,
+      kelvin: 3000,
+      dimmer: 1.0,
+      activeModel: null,
+      loadedModels: {}
+    };
+
+    // DOM Elements
+    const container = document.getElementById('canvas-container');
+    const toggleLightBtn = document.getElementById('hud-toggle-light');
+    const lightLabel = document.getElementById('light-label');
+    const lightIcon = document.getElementById('light-icon');
+    const kelvinSlider = document.getElementById('kelvin-slider');
+    const kelvinDisplay = document.getElementById('kelvin-display');
+    const dimmerSlider = document.getElementById('dimmer-slider');
+    const dimmerDisplay = document.getElementById('dimmer-display');
+    const activeModelNameEl = document.getElementById('active-model-name');
+    const fpsBadge = document.getElementById('fps-badge');
+
+    // Setup Three.js Scene
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color('#05070b');
+    scene.fog = new THREE.FogExp2('#05070b', 0.85);
+
+    const camera = new THREE.PerspectiveCamera(34, container.clientWidth / container.clientHeight, 0.01, 20);
+    camera.position.set(0.22, 0.18, 0.32);
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false, powerPreference: 'high-performance' });
+    renderer.setSize(container.clientWidth, container.clientHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.05;
+    container.appendChild(renderer.domElement);
+
+    // Orbit Controls
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.05;
+    controls.minDistance = 0.08;
+    controls.maxDistance = 1.2;
+    controls.target.set(0, 0, 0);
+
+    // Environment & Lighting
+    const pmrem = new THREE.PMREMGenerator(renderer);
+    scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+    scene.environmentIntensity = 0.85;
+
+    const hemiLight = new THREE.HemisphereLight(0xffffff, 0x1a2130, 0.7);
+    scene.add(hemiLight);
+
+    const keyLight = new THREE.DirectionalLight(0xfff3e0, 1.6);
+    keyLight.position.set(1.5, 3.0, 2.0);
+    scene.add(keyLight);
+
+    const rimLight = new THREE.DirectionalLight(0xff6b00, 1.2);
+    rimLight.position.set(-2.0, 1.0, -2.0);
+    scene.add(rimLight);
+
+    // Dynamic LED Point Light positioned along the tape
+    const ledGlowLight = new THREE.PointLight(0xffb469, 2.8, 1.8);
+    ledGlowLight.position.set(0, 0.05, 0);
+    scene.add(ledGlowLight);
+
+    // Procedural Fallback Mesh (Glowing curved neon ribbon)
+    let fallbackMesh = null;
+    function createProceduralRibbon() {
+      const curve = new THREE.CatmullRomCurve3([
+        new THREE.Vector3(-0.16, -0.03, -0.08),
+        new THREE.Vector3(-0.06, 0.02, 0.06),
+        new THREE.Vector3(0.06, -0.01, 0.08),
+        new THREE.Vector3(0.16, 0.04, -0.04)
+      ]);
+      const geom = new THREE.TubeGeometry(curve, 64, 0.007, 16, false);
+      const mat = new THREE.MeshStandardMaterial({
+        color: 0x111111,
+        emissive: new THREE.Color(0xffb469),
+        emissiveIntensity: 3.5,
+        roughness: 0.3,
+        metalness: 0.1
+      });
+      fallbackMesh = new THREE.Mesh(geom, mat);
+      fallbackMesh.name = 'fallbackRibbon';
+      scene.add(fallbackMesh);
+    }
+    createProceduralRibbon();
+
+    // Planckian Locus approximation (Kelvin to RGB Color)
+    function kelvinToColor(kelvin) {
+      const temp = kelvin / 100;
+      let r, g, b;
+
+      // Red
+      if (temp <= 66) {
+        r = 255;
+      } else {
+        r = temp - 60;
+        r = 329.698727446 * Math.pow(r, -0.1332047592);
+        if (r < 0) r = 0; if (r > 255) r = 255;
+      }
+
+      // Green
+      if (temp <= 66) {
+        g = temp;
+        g = 99.4708025861 * Math.log(g) - 161.1195681661;
+        if (g < 0) g = 0; if (g > 255) g = 255;
+      } else {
+        g = temp - 60;
+        g = 288.1221695283 * Math.pow(g, -0.0755148492);
+        if (g < 0) g = 0; if (g > 255) g = 255;
+      }
+
+      // Blue
+      if (temp >= 66) {
+        b = 255;
+      } else if (temp <= 19) {
+        b = 0;
+      } else {
+        b = temp - 10;
+        b = 138.5177312231 * Math.log(b) - 305.0447927307;
+        if (b < 0) b = 0; if (b > 255) b = 255;
+      }
+
+      return new THREE.Color(r / 255, g / 255, b / 255);
+    }
+
+    // Update Materials and Emission
+    function updateLighting() {
+      const activeColor = kelvinToColor(state.kelvin);
+      const intensity = state.isLightOn ? 3.6 * state.dimmer : 0.0;
+
+      // Update point light
+      ledGlowLight.color.copy(activeColor);
+      ledGlowLight.intensity = intensity * 1.5;
+
+      // Update fallback mesh if visible
+      if (fallbackMesh) {
+        fallbackMesh.material.emissive.copy(activeColor);
+        fallbackMesh.material.emissiveIntensity = intensity;
+      }
+
+      // Update 3D GLTF Model materials
+      if (state.activeModel) {
+        state.activeModel.traverse(obj => {
+          if (!obj.isMesh) return;
+          const materials = Array.isArray(obj.material) ? obj.material : [obj.material];
+          for (const mat of materials) {
+            if (!mat) continue;
+            const name = (mat.name || '').toLowerCase();
+            const isEmitter = name.includes('phosphor') || 
+                              name.includes('rgb chip') || 
+                              name.includes('luminous') || 
+                              name.includes('led') || 
+                              name.includes('diode');
+
+            if (isEmitter && mat.emissive) {
+              mat.emissive.copy(activeColor);
+              mat.emissiveIntensity = intensity;
+            }
+          }
+        });
+      }
+
+      // Update Lab glow element
+      const labGlow = document.getElementById('lab-glow');
+      if (labGlow) {
+        if (state.isLightOn) {
+          labGlow.style.background = `radial-gradient(circle at 50% 50%, rgba(${Math.round(activeColor.r*255)}, ${Math.round(activeColor.g*255)}, ${Math.round(activeColor.b*255)}, ${0.45 * state.dimmer}) 0%, transparent 70%)`;
+          labGlow.style.opacity = '1';
+        } else {
+          labGlow.style.opacity = '0';
+        }
+      }
+    }
+
+    // GLTF Model Loader
+    const loader = new GLTFLoader();
+    async function loadModel(family) {
+      if (fallbackMesh) fallbackMesh.visible = false;
+      if (state.activeModel) state.activeModel.visible = false;
+
+      if (!state.loadedModels[family]) {
+        try {
+          const gltf = await loader.loadAsync(MODEL_URLS[family]);
+          state.loadedModels[family] = gltf.scene;
+          scene.add(gltf.scene);
+        } catch (err) {
+          console.warn('Nie udało się załadować modelu GLB (' + family + '), aktywny procedularny fallback:', err);
+          if (fallbackMesh) fallbackMesh.visible = true;
+          return;
+        }
+      }
+
+      state.activeModel = state.loadedModels[family];
+      state.activeModel.visible = true;
+
+      // Center model
+      const box = new THREE.Box3().setFromObject(state.activeModel);
+      const center = box.getCenter(new THREE.Vector3());
+      controls.target.copy(center);
+      controls.target.y -= 0.01;
+      camera.position.copy(center).add(new THREE.Vector3(0.18, 0.16, 0.24));
+      controls.update();
+
+      updateLighting();
+    }
+
+    // Initial Load
+    loadModel('COB');
+
+    // UI Event Handlers: Light State Toggle
+    toggleLightBtn.addEventListener('click', () => {
+      state.isLightOn = !state.isLightOn;
+      toggleLightBtn.classList.toggle('active', state.isLightOn);
+      lightLabel.textContent = state.isLightOn ? 'ZAPALONE' : 'ZGASZONE';
+      lightIcon.textContent = state.isLightOn ? '⚡' : '🌑';
+      updateLighting();
+    });
+
+    // Kelvin Slider
+    kelvinSlider.addEventListener('input', (e) => {
+      state.kelvin = parseInt(e.target.value, 10);
+      kelvinDisplay.textContent = state.kelvin + 'K';
+      updateLighting();
+      updateCalculator();
+    });
+
+    // Dimmer Slider
+    dimmerSlider.addEventListener('input', (e) => {
+      state.dimmer = parseInt(e.target.value, 10) / 100;
+      dimmerDisplay.textContent = e.target.value + '%';
+      updateLighting();
+    });
+
+    // Family Buttons
+    document.querySelectorAll('button[data-family]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('button[data-family]').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        state.family = btn.dataset.family;
+        
+        const names = {
+          COB: 'COB Bezpunktowa (528 LED/m)',
+          DELUX: 'DELUX CRI 97+ (7 Lat)',
+          PREMIUM: 'PREMIUM 24V (5 Lat)',
+          WCOB: 'WCOB Wypukła Osłona'
+        };
+        activeModelNameEl.textContent = names[state.family];
+        loadModel(state.family);
+      });
+    });
+
+    // Camera Presets
+    document.getElementById('cam-preset-iso')?.addEventListener('click', () => {
+      camera.position.set(0.2, 0.18, 0.26);
+      controls.update();
+    });
+    document.getElementById('cam-preset-top')?.addEventListener('click', () => {
+      camera.position.set(0, 0.35, 0.05);
+      controls.update();
+    });
+    document.getElementById('cam-preset-macro')?.addEventListener('click', () => {
+      camera.position.set(0.08, 0.05, 0.09);
+      controls.update();
+    });
+    document.getElementById('cam-preset-arc')?.addEventListener('click', () => {
+      camera.position.set(-0.25, 0.12, 0.15);
+      controls.update();
+    });
+    document.getElementById('btn-camera-reset')?.addEventListener('click', () => {
+      camera.position.set(0.22, 0.18, 0.32);
+      controls.target.set(0, 0, 0);
+      controls.update();
+    });
+
+    // Resize Handler
+    function onWindowResize() {
+      const w = container.clientWidth;
+      const h = container.clientHeight;
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+      renderer.setSize(w, h, false);
+    }
+    window.addEventListener('resize', onWindowResize);
+
+    // RAF Animation Loop with Tab Visibility Pause (Performance standard)
+    let lastTime = performance.now();
+    let frameCount = 0;
+    let fps = 60;
+
+    function animate(now) {
+      requestAnimationFrame(animate);
+
+      // Skip render if tab hidden (Modern Web Guidance)
+      if (document.hidden) return;
+
+      controls.update();
+
+      // Idle subtle rotation
+      if (state.activeModel && !controls.state == -1) {
+        state.activeModel.rotation.y += 0.0012;
+      }
+      if (fallbackMesh && fallbackMesh.visible) {
+        fallbackMesh.rotation.y += 0.003;
+      }
+
+      renderer.render(scene, camera);
+
+      // FPS Counter
+      frameCount++;
+      if (now >= lastTime + 1000) {
+        fps = Math.round((frameCount * 1000) / (now - lastTime));
+        fpsBadge.textContent = fps + ' FPS';
+        frameCount = 0;
+        lastTime = now;
+      }
+    }
+    requestAnimationFrame(animate);
+
+    // ========================================================================
+    // CALCULATOR LOGIC (Laboratorium Światła)
+    // ========================================================================
+    const calcLength = document.getElementById('calc-length');
+    const valLength = document.getElementById('val-length');
+    const calcSeries = document.getElementById('calc-series');
+    const resPower = document.getElementById('res-power');
+    const resPsu = document.getElementById('res-psu');
+    const resLumens = document.getElementById('res-lumens');
+    const modalSummaryText = document.getElementById('modal-summary-text');
+
+    const seriesData = {
+      'COB-10W': { w_per_m: 10, lm_per_m: 1000, name: 'COB 10W/m' },
+      'COB-15W': { w_per_m: 15, lm_per_m: 1550, name: 'COB 15W/m' },
+      'DELUX-16W': { w_per_m: 16, lm_per_m: 1750, name: 'DELUX CRI97 16W/m' },
+      'PREMIUM-9.6W': { w_per_m: 9.6, lm_per_m: 960, name: 'PREMIUM 9.6W/m' }
+    };
+
+    function updateCalculator() {
+      const length = parseFloat(calcLength.value);
+      valLength.textContent = length.toFixed(1) + ' m';
+      const sel = seriesData[calcSeries.value] || seriesData['COB-15W'];
+
+      const totalPower = length * sel.w_per_m;
+      const psuWithMargin = Math.ceil((totalPower * 1.2) / 5) * 5; // round to nearest 5W
+      const totalLumens = Math.round(length * sel.lm_per_m);
+
+      resPower.textContent = totalPower.toFixed(1) + ' W';
+      resPsu.textContent = psuWithMargin + ' W';
+      resLumens.textContent = totalLumens.toLocaleString('pl-PL') + ' lm';
+
+      if (modalSummaryText) {
+        modalSummaryText.textContent = `Seria: ${sel.name} | Barwa: ${state.kelvin}K | Długość: ${length}m | Zasilacz Prescot 24V: ${psuWithMargin}W`;
+      }
+    }
+
+    calcLength.addEventListener('input', updateCalculator);
+    calcSeries.addEventListener('change', updateCalculator);
+    updateCalculator();
+
+    // Synchronize Story Card Hover with 3D Camera Angles
+    document.querySelectorAll('.story-card').forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        const focus = card.dataset.cameraFocus;
+        if (focus === 'cob') {
+          loadModel('COB');
+          camera.position.set(0.12, 0.08, 0.16);
+        } else if (focus === 'delux') {
+          loadModel('DELUX');
+          camera.position.set(-0.15, 0.12, 0.22);
+        } else if (focus === 'pcb') {
+          camera.position.set(0.06, 0.04, 0.09);
+        } else if (focus === 'onecut') {
+          camera.position.set(0.08, 0.06, 0.11);
+        }
+        controls.update();
+      });
+    });
+  </script>
+</body>
+</html>
